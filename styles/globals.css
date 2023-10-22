@@ -1,10 +1,85 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
+/* import tailwindcss */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html,
+/* Body Styling */
 body {
-  @apply font-primary text-primary;
+  @apply bg-body;
+}
+
+/* Loading Style */
+.spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #a103d3 94%, #0000) top/9px 9px
+      no-repeat,
+    conic-gradient(#0000 30%, #a103d3);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  animation: spinner-c7wet2 1s infinite linear;
+}
+
+@keyframes spinner-c7wet2 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+/* Utility Class Styling */
+.btn {
+  @apply text-center px-[20px] text-[0.75rem] Mobile-M:text-[0.85rem] Mobile-L:text-base Mobile-M:px-[25px] py-[7px] Mobile-M:py-[8px] border-primary border cursor-pointer rounded-[0.65rem] Mobile-M:rounded-xl Mobile-L:rounded-btn font-bold;
+}
+
+.btn-signin {
+  @apply bg-white text-primary;
+}
+
+.btn-signup {
+  @apply bg-primary text-white;
+}
+
+/* Navigation Bar Component */
+.navbar {
+  @apply fixed top-0 z-[999] bg-nav-clr shadow-top-bar w-full h-[70px] Mobile-L:h-[80px] flex justify-center items-center;
+}
+
+.pwa-component {
+  @apply w-pwa px-4 Mobile-L:px-6 flex justify-between items-center;
+}
+
+/* Hero Section */
+input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid #dadada !important;
+}
+
+.features-box {
+  @apply bg-white shadow-top-bar-20 absolute p-4 Mobile-L:px-6 bottom-[2rem] Mobile-L:bottom-[1.5rem] w-[90%] translate-x-[50%] right-[50%] h-[100px] Mobile-L:h-[120px] z-20 rounded-[12px] Mobile-L:rounded-[20px] flex justify-between items-center;
+}
+
+.box-arrow {
+  @apply cursor-pointer absolute rounded-full text-center w-[25px] h-[25px] Mobile-L:w-[30px] Mobile-L:h-[30px] flex justify-center items-center bg-white z-30 shadow-md;
+}
+
+.swiper-pagination {
+  position: relative !important;
+}
+
+.swiper-pagination span {
+  background-color: #DADADA !important;
+  transition: width .3s !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+  width: 26px !important;
+  border-radius: 4px !important;
+  background-color: #360146 !important;
+}
+
+.carousel-container .swiper-slide-active .event-images {
+  width: 800px !important;
+  transition: width .3s !important;
 }
