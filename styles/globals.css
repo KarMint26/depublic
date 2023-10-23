@@ -39,6 +39,11 @@ body {
   @apply bg-primary text-white;
 }
 
+/* Homepage */
+.homepage-container {
+  @apply flex justify-start items-center flex-col m-auto w-full h-fit Mobile-L:w-pwa bg-white overflow-x-hidden;
+}
+
 /* Navigation Bar Component */
 .navbar {
   @apply fixed top-0 z-[999] bg-nav-clr shadow-top-bar w-full h-[70px] Mobile-L:h-[80px] flex justify-center items-center;
@@ -63,18 +68,43 @@ input:focus {
   @apply cursor-pointer absolute rounded-full text-center w-[25px] h-[25px] Mobile-L:w-[30px] Mobile-L:h-[30px] flex justify-center items-center bg-white z-30 shadow-md;
 }
 
+/* Event Section */
+.event-container {
+  @apply bg-bg-primary h-fit w-full border-y-[0.5rem] Mobile-L:border-y-[.7rem] py-2 pb-3 Mobile-L:py-4 border-[#EEEEEE];
+}
+
+/* Carousel */
+.swiper-slide {
+  width: 15.5rem !important;
+  height: 7.8rem !important;
+  position: relative !important;
+  transform: rotateY(0) !important;
+  margin: 1.5rem 1.1rem !important;
+}
+
+.swiper-slide.swiper-slide-next,
+.swiper-slide.swiper-slide-prev{
+  transform: translate3d(0,0,-120px) !important;
+}
+
+.swiper-slide.swiper-slide-active {
+  transform: scale(1.1) !important;
+}
+
 .swiper-pagination {
   position: relative !important;
 }
 
 .swiper-pagination span {
+  width: 10px !important;
+  height: 7px !important;
   background-color: #DADADA !important;
   transition: width .3s !important;
   opacity: 1 !important;
 }
 
 .swiper-pagination .swiper-pagination-bullet-active {
-  width: 26px !important;
+  width: 37px !important;
   border-radius: 4px !important;
   background-color: #360146 !important;
 }
@@ -82,4 +112,48 @@ input:focus {
 .carousel-container .swiper-slide-active .event-images {
   width: 800px !important;
   transition: width .3s !important;
+}
+
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  display: none !important;
+}
+
+@media screen and (min-width: 375px) {
+  .swiper-slide {
+    width: 18rem !important;
+    height: 8.5rem !important;
+    margin: 1.5rem 1.3rem !important;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .swiper-slide {
+    width: 20rem !important;
+    height: 10rem !important;
+    margin: 1.5rem 1.6rem !important;
+  }
+}
+
+/* Card Event */
+.card-container {
+  @apply self-start flex justify-center items-center gap-4 pl-5 Mobile-L:pl-6 w-fit transition-all duration-300;
+}
+
+.upcoming-event {
+  @apply flex justify-center items-center flex-col pt-10 gap-[1.5rem];
+}
+
+.head-event {
+  @apply flex justify-between items-center px-5 Mobile-M:px-6 Mobile-L:px-7 w-full;
+}
+
+
+/* Popular Blog Sections */
+.blog {
+  @apply flex justify-start items-center flex-col py-16 gap-[1.5rem] w-full;
+}
+
+.head-blog {
+  @apply flex justify-between items-center px-5 Mobile-M:px-6 Mobile-L:px-7 w-full;
 }

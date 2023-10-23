@@ -26,12 +26,13 @@ export default function Hero() {
             <LuSearch className="absolute text-2xl top-[0.7rem] left-[1rem] z-10" />
             <input
               type="text"
+              name="search field"
               className="border px-14 w-full h-[46px] bg-white/30 backdrop-blur-lg border-[#DADADA] rounded-[12px] text-black"
               placeholder="Search Activities"
             />
           </div>
           <div className="tagline my-10 flex justify-center items-start flex-col gap-5 relative z-10">
-            <h1 className="text-xl Mobile-L:text-2xl font-semibold w-[230px] Mobile-L:w-[280px]">
+            <h1 className="text-xl Mobile-L:text-2xl font-semibold w-[240px] Mobile-L:w-[290px]">
               Solusi Terbaik Layanan Jual Beli Tiket Event dan Konser
             </h1>
             <ButtonDepublic
