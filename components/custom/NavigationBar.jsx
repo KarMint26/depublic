@@ -5,25 +5,50 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import ButtonDepublic from "./ButtonDepublic";
 
-export default function NavigationBar() {
+export default function NavigationBar({ whatPage }) {
   const router = useRouter();
 
   return (
     <div className="navbar">
-      <div className="pwa-component">
-        <Image
-          src="/assets/brand/depublic.png"
-          width={60}
-          height={60}
-          alt="depublic icon"
-          className="cursor-pointer Mobile-L:w-auto w-[50px]"
-          onClick={() => router.push("/")}
-        />
-        <div className="right-side flex justify-center items-center gap-2">
-          <ButtonDepublic displayText="Sign In" classBtn="btn-signin" routerPath="/sign-in" />
-          <ButtonDepublic displayText="Sign Up" classBtn="btn-signup" routerPath="/sign-up" />
-        </div>
-      </div>
+      {whatPage === "signIn" || whatPage === "signUp" ? (
+        <>
+          <div className="w-pwa px-4 Mobile-L:px-6 flex justify-start items-center">
+            <Image
+              src="/assets/brand/depublic.png"
+              width={60}
+              height={60}
+              alt="depublic icon"
+              className="cursor-pointer Mobile-L:w-auto w-[50px]"
+              onClick={() => router.push("/")}
+            />
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="pwa-component">
+            <Image
+              src="/assets/brand/depublic.png"
+              width={60}
+              height={60}
+              alt="depublic icon"
+              className="cursor-pointer Mobile-L:w-auto w-[50px]"
+              onClick={() => router.push("/")}
+            />
+            <div className="right-side flex justify-center items-center gap-2">
+              <ButtonDepublic
+                displayText="Sign In"
+                classBtn="btn-signin"
+                routerPath="/sign-in"
+              />
+              <ButtonDepublic
+                displayText="Sign Up"
+                classBtn="btn-signup"
+                routerPath="/sign-up"
+              />
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

@@ -198,3 +198,39 @@ input:focus {
 .bottom-footer {
   @apply w-full h-fit border-t border-[#6B028D] text-center text-[#EEEEEE] py-4 text-[0.6rem] Mobile-M:text-[0.65rem];
 }
+
+/* Sign In and Sign Up */
+.input-field #username:focus,
+.input-field #phone-number:focus,
+.input-field #password:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-top: 0 !important;
+  border-right: 0 !important;
+  border-left:  0 !important;
+  border-bottom: 1px solid #A6A6A6 !important;
+}
+
+.head-signup {
+  @apply flex justify-between items-end w-full py-4 Mobile-M:py-5 px-5 Mobile-M:px-6 bg-[#FEF6E5];
+}
+
+.form-field {
+  @apply w-full py-8 px-6 h-fit border-b-[0.5rem] Mobile-L:border-b-[.7rem] border-[#EEEEEE];
+}
+
+.input-component {
+  @apply px-4 py-2 w-full border-l-0 border-r-0 border-t-0 placeholder:text-[#A6A6A6] text-xs Mobile-M:text-sm placeholder:text-xs Mobile-M:placeholder:text-sm border-[#A6A6A6] Mobile-L:border-b-2 border-b;
+}
+
+.submit-btn {
+  @apply rounded-[0.65rem] w-full p-[0.65rem] Mobile-M:p-3 text-[#EEEEEE] font-bold bg-primary my-1 Mobile-M:my-2 text-sm Mobile-M:text-base;
+}
+
+.provider-login {
+  @apply flex justify-center items-center flex-col text-center gap-8 py-8 Mobile-M:py-10 Mobile-L:py-12;
+}
+
+.card-provider {
+  @apply cursor-pointer rounded-[12px] w-[70px] h-[70px] flex justify-center items-center text-center bg-bg-primary;
+}

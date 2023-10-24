@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <div className="homepage-container">
-        <NavigationBar />
+        <NavigationBar whatPage="homepage" />
         <Hero />
         <EventTicket />
         <PopularBlog />
