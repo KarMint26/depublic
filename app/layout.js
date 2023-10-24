@@ -1,5 +1,4 @@
 import { Montserrat } from "next/font/google";
-import NavigationBar from "@/components/custom/NavigationBar";
 import "../styles/globals.css";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
@@ -15,7 +14,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <NavigationBar />
         <div className="m-auto flex justify-center items-center">{children}</div>
       </body>
     </html>

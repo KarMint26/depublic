@@ -3,6 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Html Styling */
+html {
+  scroll-behavior: smooth !important;
+}
+
 /* Body Styling */
 body {
   @apply bg-body;
@@ -83,8 +88,8 @@ input:focus {
 }
 
 .swiper-slide.swiper-slide-next,
-.swiper-slide.swiper-slide-prev{
-  transform: translate3d(0,0,-120px) !important;
+.swiper-slide.swiper-slide-prev {
+  transform: translate3d(0, 0, -120px) !important;
 }
 
 .swiper-slide.swiper-slide-active {
@@ -98,8 +103,8 @@ input:focus {
 .swiper-pagination span {
   width: 10px !important;
   height: 7px !important;
-  background-color: #DADADA !important;
-  transition: width .3s !important;
+  background-color: #dadada !important;
+  transition: width 0.3s !important;
   opacity: 1 !important;
 }
 
@@ -111,7 +116,7 @@ input:focus {
 
 .carousel-container .swiper-slide-active .event-images {
   width: 800px !important;
-  transition: width .3s !important;
+  transition: width 0.3s !important;
 }
 
 .swiper-slide-shadow-left,
@@ -148,12 +153,48 @@ input:focus {
   @apply flex justify-between items-center px-5 Mobile-M:px-6 Mobile-L:px-7 w-full;
 }
 
-
 /* Popular Blog Sections */
 .blog {
-  @apply flex justify-start items-center flex-col py-16 gap-[1.5rem] w-full;
+  @apply flex justify-start items-center flex-col py-10 Mobile-L:py-12 gap-[1.5rem] w-full;
 }
 
 .head-blog {
   @apply flex justify-between items-center px-5 Mobile-M:px-6 Mobile-L:px-7 w-full;
+}
+
+/* Footer Section */
+.footer-container {
+  @apply flex justify-center items-center flex-col gap-[2rem] Mobile-M:gap-[2.5rem] px-6 pt-10 pb-6 w-full h-fit bg-[#360146];
+}
+
+.head-footer {
+  @apply flex justify-between items-start w-full gap-2;
+}
+
+.footer-brand {
+  @apply flex justify-start items-center flex-col gap-3 Mobile-M:gap-4 Mobile-L:gap-5;
+}
+
+.footer-image {
+  @apply scale-90 self-start -translate-x-2 Mobile-L:translate-x-0 Mobile-L:scale-100;
+}
+
+.tagline-footer {
+  @apply text-[0.6rem] Mobile-M:text-[0.65rem] self-start text-[#ECCDF6];
+}
+
+.social-media {
+  @apply text-[#EEEEEE] flex justify-center self-start items-center gap-2;
+}
+
+.social-media-box {
+  @apply cursor-pointer hover:bg-[#EEEEEE] hover:text-[#6B028D] transition duration-300 bg-[#6B028D] w-6 h-6 Mobile-M:w-8 Mobile-M:h-8 rounded-full flex justify-center items-center text-center;
+}
+
+.footer-list-desc {
+  @apply text-[#EEEEEE] flex justify-center items-center Mobile-M:gap-3 Mobile-L:gap-5 gap-[0.35rem] text-[0.5rem] Mobile-M:text-[0.55rem] Mobile-L:text-[0.65rem];
+}
+
+.bottom-footer {
+  @apply w-full h-fit border-t border-[#6B028D] text-center text-[#EEEEEE] py-4 text-[0.6rem] Mobile-M:text-[0.65rem];
 }
