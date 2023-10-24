@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { IoIosArrowForward } from "react-icons/io";
 
 const featuresData = [
@@ -21,6 +24,16 @@ const featuresData = [
 ];
 
 export default function BoxFeatures() {
+  const router = useRouter();
+
+  const handleFeatureClick = (name) => {
+    if (name === "Ticket") {
+      router.push("/all-event");
+    } else if (name === "Registration") {
+      router.push("/registration");
+    }
+  };
+
   return (
     <>
       <div className="features-box">
@@ -32,7 +45,10 @@ export default function BoxFeatures() {
         </div>
         {featuresData.map((data) => (
           <>
-            <div className="feat flex justify-center items-center flex-col gap-2 Mobile-L:gap-3 cursor-pointer">
+            <div
+              className="feat flex justify-center items-center flex-col gap-2 Mobile-L:gap-3 cursor-pointer"
+              onClick={() => handleFeatureClick(data.name)}
+            >
               <Image
                 src={data.image}
                 alt="features-image"

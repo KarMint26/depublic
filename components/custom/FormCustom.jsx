@@ -166,22 +166,48 @@ export default function FormCustom({ dataForm }) {
               {eyeClosed ? (
                 <>
                   <PiEyeClosed
-                    className="text-xl absolute right-4 cursor-pointer bottom-[.8rem] text-[#A6A6A6]"
+                    className="text-xl absolute right-4 cursor-pointer bottom-[1.5rem] text-[#A6A6A6]"
                     onClick={() => setEyeClosed((eye) => !eye)}
                   />
                 </>
               ) : (
                 <>
                   <PiEye
-                    className="text-xl absolute right-4 cursor-pointer bottom-[.8rem] text-[#A6A6A6]"
+                    className="text-xl absolute right-4 cursor-pointer bottom-[1.5rem] text-[#A6A6A6]"
                     onClick={() => setEyeClosed((eye) => !eye)}
                   />
                 </>
               )}
+              <p
+                className={`text-red-500 text-xs translate-y-2 ${
+                  (signInForm.password.length <= 6 &&
+                    signInForm.password.length != 0) ||
+                  (signUpForm.password.length <= 6 &&
+                    signUpForm.password.length != 0)
+                    ? "visible"
+                    : "invisible"
+                }`}
+              >
+                Password must be more than 6 characters
+              </p>
             </div>
-            <button type="submit" className="submit-btn">
-              {dataForm.textBtn}
-            </button>
+            {(signInForm.password.length > 6 &&
+              signInForm.username.length > 10) ||
+            (signUpForm.password.length > 6 &&
+              signUpForm.username.length > 10 &&
+              signUpForm.phoneNumber > 10) ? (
+              <>
+                <button type="submit" className="submit-btn">
+                  {dataForm.textBtn}
+                </button>
+              </>
+            ) : (
+              <>
+                <button type="submit" className="submit-btn" disabled>
+                  {dataForm.textBtn}
+                </button>
+              </>
+            )}
             <p className="text-[#A6A6A6] text-xs">
               {dataForm.botText}{" "}
               <Link href={dataForm.path} className="font-bold text-primary">
