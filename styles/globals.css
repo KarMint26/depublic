@@ -220,7 +220,7 @@ input:focus {
 }
 
 .input-component {
-  @apply px-4 py-2 w-full border-l-0 border-r-0 border-t-0 placeholder:text-[#A6A6A6] text-xs Mobile-M:text-sm placeholder:text-xs Mobile-M:placeholder:text-sm border-[#A6A6A6] Mobile-L:border-b-2 border-b;
+  @apply px-4 py-2 w-full border-l-0 border-r-0 border-t-0 placeholder:text-[#A6A6A6] text-xs Mobile-M:text-sm placeholder:text-xs Mobile-M:placeholder:text-sm border-[#A6A6A6] Mobile-L:border-b-2 border-b bg-transparent;
 }
 
 .submit-btn {
@@ -232,5 +232,13 @@ input:focus {
 }
 
 .card-provider {
-  @apply cursor-pointer rounded-[12px] w-[70px] h-[70px] flex justify-center items-center text-center bg-bg-primary;
+  @apply cursor-pointer rounded-[12px] w-[60px] h-[60px] Mobile-M:w-[70px] Mobile-M:h-[70px] flex justify-center items-center text-center bg-bg-primary;
+}
+
+.violet-union {
+  @apply absolute -right-[1.8rem] top-[10.5rem] Mobile-M:-right-[1.8rem] Mobile-M:top-[11.6rem] Mobile-L:-right-[1.5rem] Mobile-L:top-[12.5rem] w-[75px] h-[75px] Mobile-M:w-[80px] Mobile-M:h-[80px] rounded-full bg-[#ECCDF6];
+}
+
+.yellow-union {
+  @apply absolute right-[0.2rem] top-[6.8rem] Mobile-M:top-[7.8rem] Mobile-M:right-[0.6rem] Mobile-L:top-[8.5rem] Mobile-L:right-[0.8rem] Mobile-M:scale-100 scale-90;
 }

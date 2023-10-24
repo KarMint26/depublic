@@ -8,6 +8,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
 import CardProvider from "./CardProvider";
+import Image from "next/image";
+import LoadingForm from "./LoadingForm";
 
 export default function FormCustom({ dataForm }) {
   const router = useRouter();
@@ -28,9 +30,23 @@ export default function FormCustom({ dataForm }) {
   // State handle hidden password
   const [eyeClosed, setEyeClosed] = useState(true);
 
+  // State handle loading
+  const [loading, setLoading] = useState(false);
+
   // function to handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (dataForm.whatForm === "SignIn") {
+      setLoading(true);
+      setTimeout(() => {
+        router.push("/");
+      }, 3000);
+    } else {
+      setLoading(true);
+      setTimeout(() => {
+        router.push("/sign-in");
+      }, 3000);
+    }
   };
 
   // function to handle input
@@ -55,13 +71,26 @@ export default function FormCustom({ dataForm }) {
   // Handle Google Login Provider
   const handleGoogleLogin = () => {
     console.log("google");
+    setLoading(true);
+    setTimeout(() => {
+      router.push("/");
+    }, 3000);
   };
 
   return (
     <>
       <div className="signup h-[880px] bg-white w-full">
+        {loading && <LoadingForm />}
         <div className="top-block w-full h-[70px] Mobile-L:h-[80px]"></div>
-        <div className="head-signup">
+        <Image
+          src="/assets/decoration/Union.png"
+          width={83}
+          height={83}
+          alt="decoration"
+          className="yellow-union"
+        />
+        <div className="violet-union"></div>
+        <div className="head-signup relative z-20">
           <h1 className="text-[#000000] text-base Mobile-M:text-lg font-bold">
             {dataForm.titleForm}
           </h1>
@@ -75,7 +104,7 @@ export default function FormCustom({ dataForm }) {
             onSubmit={handleSubmit}
             className="w-full flex justify-center items-center flex-col gap-5"
           >
-            <h1 className="text-[#000000] text-sm Mobile-M:text-[1rem] Mobile-L:text-lg font-semibold mb-2 self-start">
+            <h1 className="text-[#000000] text-[0.8rem] Mobile-M:text-[0.9rem] Mobile-L:text-base font-medium mb-2 self-start">
               {dataForm.taglineForm}
             </h1>
             <div className="input-field w-full relative h-fit">
@@ -98,9 +127,10 @@ export default function FormCustom({ dataForm }) {
                       )
                 }
                 autoComplete="off"
+                required
               />
             </div>
-            {dataForm.whatForm === "SignUp" ? (
+            {dataForm.whatForm === "SignUp" && (
               <>
                 <div className="input-field w-full relative h-fit">
                   <input
@@ -112,11 +142,10 @@ export default function FormCustom({ dataForm }) {
                     onChange={handleInputChange}
                     value={signUpForm.phoneNumber}
                     autoComplete="off"
+                    required
                   />
                 </div>
               </>
-            ) : (
-              <></>
             )}
             <div className="input-field w-full relative h-fit">
               <input
@@ -132,6 +161,7 @@ export default function FormCustom({ dataForm }) {
                     : signInForm.password
                 }
                 autoComplete="off"
+                required
               />
               {eyeClosed ? (
                 <>
@@ -165,18 +195,18 @@ export default function FormCustom({ dataForm }) {
           <div className="provider-list flex justify-center items-center gap-7">
             <CardProvider
               iconProvider={
-                <BsApple className="text-[2.6rem] leading-[70px]" />
+                <BsApple className="text-[2rem] Mobile-M:text-[2.6rem] leading-[70px]" />
               }
             />
             <CardProvider
               iconProvider={
-                <FcGoogle className="text-[2.6rem] leading-[70px]" />
+                <FcGoogle className="text-[2rem] Mobile-M:text-[2.6rem] leading-[70px]" />
               }
               handleClick={handleGoogleLogin}
             />
             <CardProvider
               iconProvider={
-                <BsFacebook className="text-[2.6rem] leading-[70px] text-blue-600" />
+                <BsFacebook className="text-[2rem] Mobile-M:text-[2.6rem] leading-[70px] text-blue-600" />
               }
             />
           </div>
