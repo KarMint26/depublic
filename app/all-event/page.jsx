@@ -1,7 +1,20 @@
-import React from 'react'
+import NavigationBar from "@/components/custom/NavigationBar";
+import AllEvent from "@/components/allEvent/AllEvent";
+import React from "react";
 
-export default function AllEvent() {
+export const metadata = {
+  title: "Depublic | All Event",
+  description:
+    "Platform ini merupakan tempat jual-beli tiket konser ataupun event. Platform ini membuka dan menyediakan berbagai jenis kategori kebutuhan. User yang mendaftarkan diri pada aplikasi ini dapat berperan buyer. Dalam hal ini, pengguna diharapkan dapat dengan mudah menemukan jadwal konser yang sesuai dengan kebutuhan mereka dan membayar tiket secara online. Selain itu, website ini juga diharapkan dapat menyediakan informasi yang akurat dan terkini tentang event yang sedang berlangsung",
+};
+
+export default function Page() {
   return (
-    <div>AllEvent</div>
-  )
+    <>
+      <div className="homepage-container">
+        <NavigationBar whatPage="detailEvents" />
+        <AllEvent />
+      </div>
+    </>
+  );
 }

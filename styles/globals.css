@@ -242,3 +242,8 @@ input:focus {
 .yellow-union {
   @apply absolute right-[0.2rem] top-[6.8rem] Mobile-M:top-[7.8rem] Mobile-M:right-[0.6rem] Mobile-L:top-[8.5rem] Mobile-L:right-[0.8rem] Mobile-M:scale-100 scale-90;
 }
+
+/* Detail event */
+.upcoming-event-container {
+  @apply bg-bg-primary h-fit w-full border-t-[0.5rem] Mobile-L:border-t-[.7rem] pb-3 border-[#EEEEEE];
+}

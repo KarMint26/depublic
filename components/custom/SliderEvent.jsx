@@ -8,8 +8,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import "swiper/css/effect-coverflow";
+import { useRouter } from "next/navigation";
 
 const SliderEvent = ({ carouselImage }) => {
+  const router = useRouter();
+
   return (
     <>
       <div className="carousel-container flex justify-center items-center">
@@ -39,7 +42,8 @@ const SliderEvent = ({ carouselImage }) => {
                   width={350}
                   height={300}
                   alt={card.alt}
-                  className="event-images rounded-[14px] Mobile-M:rounded-[16px] Mobile-L:rounded-[20px]"
+                  className="event-images rounded-[14px] Mobile-M:rounded-[16px] Mobile-L:rounded-[20px] cursor-pointer"
+                  onClick={() => router.push(`/all-event/detail/${card.id}`)}
                 />
               </SwiperSlide>
             </>

@@ -4,47 +4,13 @@ import { useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
 import CardBlog from "../custom/CardBlog";
-
-const blogData = [
-  {
-    id: 1,
-    titleBlog: "Musik Itu Sahabat",
-    shortDesc: "Musik adalah sahabat yang selalu ada untuk kita dalam setiap momen kebahagiaan dan kesedihan.",
-    imagePath: "/assets/blogs/blog-images.png",
-    alt: "upcoming-event",
-    tgl: "Rabu, Maret 27"
-  },
-  {
-    id: 2,
-    titleBlog: "Konser Bahagia",
-    shortDesc: "Konser adalah pengalaman yang luar biasa di mana kita dapat merasakan kebahagiaan sejati melalui musik.",
-    imagePath: "/assets/blogs/blog-images-2.png",
-    alt: "upcoming-event-2",
-    tgl: "Kamis, Juli 12"
-  },
-  {
-    id: 3,
-    titleBlog: "Menonton Konser",
-    shortDesc: "Menonton konser adalah pengalaman yang tidak dapat digantikan. Saat kita semangat.",
-    imagePath: "/assets/blogs/blog-images-3.png",
-    alt: "upcoming-event-3",
-    tgl: "Kamis, Agustus 19"
-  },
-  {
-    id: 4,
-    titleBlog: "Penyanyi Favorit",
-    shortDesc: "Setiap orang memiliki penyanyi favorit yang lagu-lagu mereka adalah pengiring dalam setiap tahap hidup.",
-    imagePath: "/assets/blogs/blog-images-4.png",
-    alt: "upcoming-event-4",
-    tgl: "Selasa, April 16"
-  },
-];
-
+import { BlogData } from "@/context/BlogContext";
 
 export default function PopularBlog() {
   const [prev, setPrev] = useState(false);
   const [next, setNext] = useState(false);
   const [slideTranslate, setSlideTranslate] = useState(0);
+  const { blogData } = BlogData();
 
   // Algoritma untuk menggeser card container
   const handleSlider = (type) => {

@@ -1,16 +1,22 @@
+"use client";
+
 import { PiMapPin } from "react-icons/pi";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const CardEvent = ({ dataEvent }) => {
+  const router = useRouter();
+
   return (
     <>
       <div
         key={dataEvent.id}
         className="card flex justify-center items-center flex-col gap-[1rem] bg-bg-primary shadow-card-shadow p-3 rounded-[14px] Mobile-M:rounded-[16px] Mobile-L:rounded-[20px] w-[250px] h-fit cursor-pointer group"
+        onClick={() => router.push(`/all-event/detail/${dataEvent.id}`)}
       >
         <div className="img-container rounded-[14px] Mobile-M:rounded-[16px] w-fit h-fit overflow-hidden">
           <Image
-            src={dataEvent.imagePath}
+            src={dataEvent.url}
             alt={dataEvent.alt}
             width={250}
             height={200}
