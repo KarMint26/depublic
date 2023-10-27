@@ -1,4 +1,4 @@
-export default function BodyDetailEvent({ daysData }) {
+export default function DateOfEvent({ daysData }) {
   return (
     <>
       <div className="calendar px-5 Mobile-M:px-6 flex justify-center items-center flex-col w-full gap-2">

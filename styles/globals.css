@@ -207,8 +207,8 @@ input:focus {
   box-shadow: none !important;
   border-top: 0 !important;
   border-right: 0 !important;
-  border-left:  0 !important;
-  border-bottom: 1px solid #A6A6A6 !important;
+  border-left: 0 !important;
+  border-bottom: 1px solid #a6a6a6 !important;
 }
 
 .head-signup {
@@ -246,4 +246,16 @@ input:focus {
 /* Detail event */
 .upcoming-event-container {
   @apply bg-bg-primary h-fit w-full border-t-[0.5rem] Mobile-L:border-t-[.7rem] pb-3 border-[#EEEEEE];
+}
+
+.tickets-entered {
+  @apply px-5 Mobile-M:px-6 bg-bg-primary h-fit w-full border-b-[0.5rem] Mobile-L:border-b-[.7rem] py-7 border-[#EEEEEE];
+}
+
+.ticket-desc {
+  @apply px-5 Mobile-M:px-6 bg-bg-primary h-fit w-full py-7;
+}
+
+.btn-see-more {
+  @apply w-full bg-[#EEEEEE] px-2 py-2 Mobile-M:text-base text-sm Mobile-M:py-3 rounded-xl text-center flex justify-center items-center absolute bottom-0 font-bold text-[#4D4D4D] z-50 gap-2 cursor-pointer transition-all duration-300 ease-in-out;
 }
