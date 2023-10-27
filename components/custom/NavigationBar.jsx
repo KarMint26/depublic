@@ -6,15 +6,24 @@ import React, { useState } from "react";
 import ButtonDepublic from "./ButtonDepublic";
 import { TfiEmail } from "react-icons/tfi";
 import { LuUserCircle2, LuLogOut } from "react-icons/lu";
+import { UserAuth } from "@/context/AuthContext";
 
 export default function NavigationBar({ whatPage }) {
   const router = useRouter();
+  const { user, logOut } = UserAuth();
   const [modal, setModal] = useState(false);
-  const [isAuth, setIsAuth] = useState(false);
+
+  const handleSignOut = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <div className="navbar">
-      {!isAuth ? (
+      {!user || user === null || user === "" ? (
         <>
           {whatPage === "signIn" || whatPage === "signUp" ? (
             <>
@@ -81,11 +90,11 @@ export default function NavigationBar({ whatPage }) {
             {modal && (
               <>
                 <div className="modal-box w-[150px] h-fit p-3 rounded-xl absolute right-5 top-[5rem] Mobile-M:top-[5.5rem] Mobile-L:top-[6rem] bg-primary text-white z-20">
-                  <h3 className="font-bold">Welcome, user</h3>
+                  <h3 className="font-bold">Welcome, {user !== null ? user.displayName !== null ? user.displayName : user.email.slice(0, user.email.length - 10) : 'User'}</h3>
                   <p className="text-[0.9rem] border-b border-white/80 py-1 pb-2">
                     Have fun explore!
                   </p>
-                  <div className="btn-logout flex px-2 cursor-pointer font-semibold justify-start items-center gap-3 py-2">
+                  <div className="btn-logout flex px-2 cursor-pointer font-semibold justify-start items-center gap-3 py-2" onClick={() => handleSignOut()}>
                     <LuLogOut className="text-lg" />
                     <p className="text-sm">Log Out</p>
                   </div>

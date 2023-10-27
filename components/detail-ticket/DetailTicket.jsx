@@ -15,13 +15,14 @@ import CardPackageTicket from "../custom/CardPackageTicket";
 import CardMoreInfo from "../custom/CardMoreInfo";
 import { PiMapPin } from "react-icons/pi";
 import ButtonDepublic from "../custom/ButtonDepublic";
+import { UserAuth } from "@/context/AuthContext";
 
 export default function DetailTicket({ id }) {
   const { upcomingEventData, daysData, packageInfo, moreInfoPackage } =
     TicketData();
   const detailEventData = upcomingEventData[id - 1];
   const [seeMore, setSeeMore] = useState(false);
-  const [isAuth, setIsAuth] = useState(true);
+  const { user } = UserAuth();
 
   return (
     <>
@@ -78,7 +79,7 @@ export default function DetailTicket({ id }) {
           </div>
         </div>
 
-        {isAuth ? (
+        {user != null ? (
           <>
             <div className="content-detail-event px-5 Mobile-M:px-6">
               <HeadDetailEvent detailEventData={detailEventData} />
@@ -299,7 +300,7 @@ export default function DetailTicket({ id }) {
           </>
         )}
       </div>
-      {isAuth && (
+      {user && (
         <>
           <Footer />
         </>

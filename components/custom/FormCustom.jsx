@@ -5,14 +5,16 @@ import { FcGoogle } from "react-icons/fc";
 import { BsApple, BsFacebook } from "react-icons/bs";
 import { PiEyeClosed, PiEye } from "react-icons/pi";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import CardProvider from "./CardProvider";
 import Image from "next/image";
 import LoadingForm from "./LoadingForm";
+import { UserAuth } from "@/context/AuthContext";
 
 export default function FormCustom({ dataForm }) {
   const router = useRouter();
+  const { user, googleSignIn, signIn, signUp } = UserAuth();
 
   // state handle sign up page
   const [signUpForm, setSignUpForm] = useState({
@@ -34,18 +36,24 @@ export default function FormCustom({ dataForm }) {
   const [loading, setLoading] = useState(false);
 
   // function to handle submit
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (dataForm.whatForm === "SignIn") {
-      setLoading(true);
-      setTimeout(() => {
-        router.push("/");
-      }, 3000);
+      try {
+        await signIn(signInForm.username, signInForm.password);
+      } catch (error) {
+        console.log(error.message);
+      }
     } else {
-      setLoading(true);
-      setTimeout(() => {
-        router.push("/sign-in");
-      }, 3000);
+      try {
+        await signUp(signUpForm.username, signUpForm.password);
+        setLoading(true);
+        setTimeout(() => {
+          router.push("/sign-in");
+        }, 3000);
+      } catch (error) {
+        console.log(error.message);
+      }
     }
   };
 
@@ -69,13 +77,23 @@ export default function FormCustom({ dataForm }) {
   };
 
   // Handle Google Login Provider
-  const handleGoogleLogin = () => {
-    console.log("google");
-    setLoading(true);
-    setTimeout(() => {
-      router.push("/");
-    }, 3000);
+  const handleGoogleLogin = async () => {
+    try {
+      await googleSignIn();
+    } catch (error) {
+      console.log(error.message);
+    }
   };
+
+  useEffect(() => {
+    if (user !== null) {
+      setLoading(true)
+      setTimeout(() => {
+        router.push("/");
+        setLoading(false);
+      }, 3000);
+    }
+  }, [user]);
 
   return (
     <>
@@ -203,7 +221,7 @@ export default function FormCustom({ dataForm }) {
               </>
             ) : (
               <>
-                <button type="submit" className="submit-btn" disabled>
+                <button type="submit" className="submit-btn-disabled" disabled>
                   {dataForm.textBtn}
                 </button>
               </>

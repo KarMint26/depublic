@@ -2,6 +2,7 @@ import { Montserrat } from "next/font/google";
 import "../styles/globals.css";
 import { TicketContextProvider } from "@/context/TicketContext";
 import { BlogContextProvider } from "@/context/BlogContext";
+import { AuthContextProvider } from "@/context/AuthContext";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -16,13 +17,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <TicketContextProvider>
-          <BlogContextProvider>
-            <div className="m-auto flex justify-center items-center">
-              {children}
-            </div>
-          </BlogContextProvider>
-        </TicketContextProvider>
+        <AuthContextProvider>
+          <TicketContextProvider>
+            <BlogContextProvider>
+              <div className="m-auto flex justify-center items-center">
+                {children}
+              </div>
+            </BlogContextProvider>
+          </TicketContextProvider>
+        </AuthContextProvider>
       </body>
     </html>
   );

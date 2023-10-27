@@ -227,6 +227,10 @@ input:focus {
   @apply rounded-[0.65rem] w-full p-[0.65rem] Mobile-M:p-3 text-[#EEEEEE] font-bold bg-primary my-1 Mobile-M:my-2 text-sm Mobile-M:text-base;
 }
 
+.submit-btn-disabled {
+  @apply rounded-[0.65rem] w-full p-[0.65rem] Mobile-M:p-3 text-[#EEEEEE] font-bold bg-slate-400 my-1 Mobile-M:my-2 text-sm Mobile-M:text-base;
+}
+
 .provider-login {
   @apply flex justify-center items-center flex-col text-center gap-8 py-8 Mobile-M:py-10 Mobile-L:py-12;
 }
