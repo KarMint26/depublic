@@ -178,17 +178,22 @@ export default function DetailTicket({ id }) {
               </div>
             </div>
 
-            <div className="ticket-desc">
-              <h1 className="text-sm Mobile-M:text-[0.9rem] Mobile-L:text-[1rem] font-bold">
-                Description
-              </h1>
-              <div className="relative text-[0.65rem] Mobile-M:text-xs pt-5 leading-[1.2rem] text-justify">
-                Diharapkan melalui website ticketing ini dapat membantu
-                mengatasi masalah pengguna terkait pembelian ticket yang
-                terkadang habis atau tidak kebagian. Melalui website ini
-                pengguna dapat melakukan pengecekan apakah tiket untuk event
-                atau konser sudah tersedia atau belum serta bisa membelinya
-                secara online.
+            <div className="ticket-desc-wrapper">
+              <div className="ticket-desc">
+                <h1 className="text-sm Mobile-M:text-[0.9rem] Mobile-L:text-[1rem] font-bold">
+                  Description
+                </h1>
+                <div className="relative text-[0.65rem] Mobile-M:text-xs pt-5 leading-[1.2rem] text-justify">
+                  Diharapkan melalui website ticketing ini dapat membantu
+                  mengatasi masalah pengguna terkait pembelian ticket yang
+                  terkadang habis atau tidak kebagian. Melalui website ini
+                  pengguna dapat melakukan pengecekan apakah tiket untuk event
+                  atau konser sudah tersedia atau belum serta bisa membelinya
+                  secara online. Diharapkan pengguna dapat merasa puas telah
+                  menjadikan website ini sebagai referensi membeli tiket event.
+                  Pastikan juga untuk mulai dengan Sign Up atau daftar akun anda
+                  dan lakukan Sign In, bisa juga dengan akun google.
+                </div>
               </div>
             </div>
 

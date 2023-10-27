@@ -253,9 +253,32 @@ input:focus {
 }
 
 .ticket-desc {
-  @apply px-5 Mobile-M:px-6 bg-bg-primary h-fit w-full py-7;
+  @apply px-3 Mobile-M:px-4 bg-bg-primary h-[150px] overflow-y-scroll w-full;
 }
 
 .btn-see-more {
   @apply w-full bg-[#EEEEEE] px-2 py-2 Mobile-M:text-base text-sm Mobile-M:py-3 rounded-xl text-center flex justify-center items-center absolute bottom-0 font-bold text-[#4D4D4D] z-50 gap-2 cursor-pointer transition-all duration-300 ease-in-out;
 }
+
+/* Styling scroll bar for elements with overflow-y-scroll */
+.ticket-desc {
+  scrollbar-color: #FFB400;
+  scrollbar-width: thin;
+}
+
+.ticket-desc-wrapper {
+  @apply w-full h-fit px-3 pr-5 py-7;
+}
+
+.ticket-desc::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ticket-desc::-webkit-scrollbar-thumb {
+  background-color: #FFB400;
+}
+
+.ticket-desc::-webkit-scrollbar-track {
+  background-color: #EEEEEE;
+}
+
