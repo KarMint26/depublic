@@ -2,7 +2,7 @@
 
 import { TicketData } from "@/context/TicketContext";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavigationBar from "../custom/NavigationBar";
 import { IoIosArrowForward } from "react-icons/io";
 import { RiSendPlaneLine } from "react-icons/ri";
@@ -22,12 +22,31 @@ export default function DetailTicket({ id }) {
     TicketData();
   const detailEventData = upcomingEventData[id - 1];
   const [seeMore, setSeeMore] = useState(false);
+  const [viewPackage, setViewPackage] = useState(false);
   const { user } = UserAuth();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const handleScroll = () => {
+        if (window.scrollY > 450) {
+          setViewPackage(true);
+        } else {
+          setViewPackage(false);
+        }
+      };
+
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
 
   return (
     <>
       <NavigationBar whatPage="detailEvents" />
-      <div className="wrapper w-full h-fit">
+      <div className="wrapper w-full h-fit relative">
         <div className="head-all-event pt-28 pb-6 w-full h-fit flex justify-center items-center flex-col gap-5 Mobile-M:gap-6 Mobile-L:gap-6 px-5 Mobile-M:px-6">
           <div className="breadcumbs flex justify-center items-center gap-3 self-start">
             <Link
@@ -90,7 +109,10 @@ export default function DetailTicket({ id }) {
               style={{ paddingBottom: "2rem", paddingTop: "1.5rem" }}
             >
               <DateOfEvent daysData={daysData} />
-              <div className="container-package w-full mt-5 h-fit px-6 py-7 bg-[#ECCDF61A]/10">
+              <div
+                id="package"
+                className="container-package w-full mt-5 h-fit px-6 py-7 bg-[#ECCDF61A]/10"
+              >
                 <div
                   className={`standing-package relative ${
                     !seeMore ? "h-[450px]" : "h-fit"
@@ -201,6 +223,16 @@ export default function DetailTicket({ id }) {
             <div className="upcoming-event-container">
               <UpcomingEvent upcomingEventData={upcomingEventData} />
             </div>
+
+            <Link
+              href="#package"
+              className={`btn-view-package ${
+                !viewPackage ? "flex" : "hidden"
+              } justify-center items-center text-[#EEEEEE] bg-primary Mobile-L:w-pwa w-full z-50 p-3 font-bold text-xs Mobile-M:text-sm fixed bottom-0`}
+              onClick={() => setViewPackage(true)}
+            >
+              View Package
+            </Link>
           </>
         ) : (
           <>
@@ -263,7 +295,7 @@ export default function DetailTicket({ id }) {
               </div>
               <div className="not-auth flex justify-center items-center absolute bottom-0 bg-white/10 z-20 backdrop-blur-sm w-full h-[250px]">
                 <div
-                  className="auth-box flex justify-center items-center flex-col gap-5 w-[90%] py-5 bg-white"
+                  className="auth-box flex justify-center items-center flex-col gap-5 w-[90%] py-5 bg-white rounded-lg Mobile-M:rounded-xl"
                   style={{ boxShadow: "0 0 8px rgba(0,0,0,0.1)" }}
                 >
                   <div className="head-box flex justify-center items-center gap-4">

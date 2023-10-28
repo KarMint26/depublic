@@ -280,9 +280,11 @@ input:focus {
 
 .ticket-desc::-webkit-scrollbar-thumb {
   background-color: #FFB400;
+  border-radius: 1rem;
 }
 
 .ticket-desc::-webkit-scrollbar-track {
   background-color: #EEEEEE;
+  border-radius: 1rem;
 }
 
