@@ -4,7 +4,7 @@
 
 <img src="./readme-image/Screenshot/HomepageDepublic.png" width="100%" alt="homepage" />
 
-### **LINK URL WEBSITE** : https://depublic.vercel.app/
+### **LINK URL WEBSITE** : https://depublic-pwa.vercel.app/
 
 ## MAIN OF TECHNOLOGY : [NEXTJS 13.5.6](https://github.com/flowbite/flowbite-react)
 
@@ -55,7 +55,7 @@ Here is a list of development dependencies used in this project:
 
 The following steps outline the workflow of the "Depublic" website:
 
-1. **Access the Website**: Open your web browser and enter the URL [https://depublic.vercel.app](https://depublic.vercel.app) in the address bar.
+1. **Access the Website**: Open your web browser and enter the URL [https://depublic-pwa.vercel.app](https://depublic-pwa.vercel.app) in the address bar.
 
 2. **Loading Screen**: Upon entering the website, a loading screen will be displayed. This loading screen ensures that all website components are fully rendered before the content becomes visible.
 
