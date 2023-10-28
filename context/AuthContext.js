@@ -16,6 +16,7 @@ const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState("");
+  const [error, setError] = useState("");
 
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
@@ -23,7 +24,12 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const signIn = (email, password) => {
-    signInWithEmailAndPassword(auth, email, password);
+    signInWithEmailAndPassword(auth, email, password).then(() => {
+      setError(null)
+    }).catch((err) => {
+      console.log(err.message);
+      setError("username atau password salah");
+    });
   };
 
   const signUp = (email, password) => {
@@ -43,7 +49,7 @@ export const AuthContextProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, googleSignIn, logOut, signIn, signUp }}
+      value={{ user, googleSignIn, logOut, signIn, signUp, error }}
     >
       {children}
     </AuthContext.Provider>

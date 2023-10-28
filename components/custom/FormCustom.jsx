@@ -12,9 +12,9 @@ import Image from "next/image";
 import LoadingForm from "./LoadingForm";
 import { UserAuth } from "@/context/AuthContext";
 
-export default function FormCustom({ dataForm }) {
+export default function FormCustom({ dataForm, errorHandle }) {
   const router = useRouter();
-  const { user, googleSignIn, signIn, signUp } = UserAuth();
+  const { user, googleSignIn, signIn, signUp, error } = UserAuth();
 
   // state handle sign up page
   const [signUpForm, setSignUpForm] = useState({
@@ -86,6 +86,11 @@ export default function FormCustom({ dataForm }) {
   };
 
   useEffect(() => {
+    if(error){
+      errorHandle(error);
+    } else if(error === null && user !== null) {
+      errorHandle("Yay!, Login Berhasil")
+    }
     if (user !== null) {
       setLoading(true)
       setTimeout(() => {
@@ -93,7 +98,7 @@ export default function FormCustom({ dataForm }) {
         setLoading(false);
       }, 3000);
     }
-  }, [user]);
+  }, [user, error]);
 
   return (
     <>
