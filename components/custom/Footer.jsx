@@ -15,7 +15,7 @@ export default function Footer() {
               height={50}
               className="footer-image"
             />
-            <p className="tagline-footer">"Berikan Layanan Terbaik"</p>
+            <p className="tagline-footer">{"Berikan Layanan Terbaik"}</p>
             <div className="social-media">
               <div className="social-media-box">
                 <BsInstagram className="text-sm Mobile-M:text-base leading-[1.5rem] Mobile-M:leading-[2rem]" />

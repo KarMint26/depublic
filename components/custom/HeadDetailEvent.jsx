@@ -32,8 +32,8 @@ export default function HeadDetailEvent({ detailEventData }) {
         <ul className="text-[#4D4D4D] text-[0.6rem] flex justify-center items-start gap-[0.15rem] flex-col">
           <li className="list-item pl-4 relative">
             <p className="before:w-1 before:h-1 before:left-0 before:rounded-full before:bg-[#4D4D4D] before:absolute before:top-[0.35rem]">
-              Saksikan langsung penampilan memukau dari Maher Zain lewat tur
-              perdana mereka, “2023 LE SSERAFIM TOUR 'FLAME RISES' IN JAKARTA”
+              {`Saksikan langsung penampilan memukau dari Maher Zain lewat tur
+              perdana mereka, “2023 LE SSERAFIM TOUR 'FLAME RISES' IN JAKARTA”`}
             </p>
           </li>
           <li className="list-item pl-4 relative">
@@ -53,7 +53,9 @@ export default function HeadDetailEvent({ detailEventData }) {
       <div className="info-penting flex justify-center items-center flex-col gap-3 Mobile-L:rounded-xl rounded-lg w-full h-fit pt-5 pb-4 px-3 bg-[#FBF6EC] mb-7">
         <div className="head-info flex justify-between w-full items-center">
           <h3 className="font-bold text-sm">Info Penting</h3>
-          <h3 className="text-xs font-medium text-[#805A00] cursor-pointer">See more</h3>
+          <h3 className="text-xs font-medium text-[#805A00] cursor-pointer">
+            See more
+          </h3>
         </div>
         <ul className="text-[#4D4D4D] text-[0.6rem] flex justify-center items-start gap-[0.15rem] flex-col">
           <li className="list-item pl-4 relative">

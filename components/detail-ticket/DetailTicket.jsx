@@ -241,9 +241,9 @@ export default function DetailTicket({ id }) {
                   <ul className="text-[#4D4D4D] text-[0.6rem] flex justify-center items-start gap-[0.15rem] flex-col">
                     <li className="list-item pl-4 relative">
                       <p className="before:w-1 before:h-1 before:left-0 before:rounded-full before:bg-[#4D4D4D] before:absolute before:top-[0.35rem]">
-                        Saksikan langsung penampilan memukau dari Maher Zain
+                        {`Saksikan langsung penampilan memukau dari Maher Zain
                         lewat tur perdana mereka, “2023 LE SSERAFIM TOUR 'FLAME
-                        RISES' IN JAKARTA”
+                        RISES' IN JAKARTA”`}
                       </p>
                     </li>
                     <li className="list-item pl-4 relative">
