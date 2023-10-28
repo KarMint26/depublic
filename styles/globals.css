@@ -257,7 +257,7 @@ input:focus {
 }
 
 .ticket-desc {
-  @apply px-3 Mobile-M:px-4 bg-bg-primary h-[150px] overflow-y-scroll w-full;
+  @apply px-3 Mobile-M:px-4 bg-white h-[150px] overflow-y-scroll w-full;
 }
 
 .btn-see-more {
