@@ -8,7 +8,7 @@ export default function Hero() {
     <>
       <div className="hero relative">
         <Image
-          className="absolute top-[3.5rem] Mobile-L:top-[5rem] scale-[0.85] Mobile-L:scale-100 -right-[1rem] Mobile-M:-right-[1.15rem] Mobile-L:-right-[0.5rem]"
+          className="absolute top-[3.5rem] Mobile-L:top-[5rem] scale-[0.85] Mobile-L:scale-100 -right-[1.15rem] Mobile-L:-right-[0.5rem]"
           src="/assets/decoration/union-yellow.png"
           alt="union-1"
           width={230}
