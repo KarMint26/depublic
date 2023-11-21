@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function CardPackageTicket({ detailEventData, idEvent, num, packageInfo }) {
+export default function CardPackageTicket({ detailEventData, num, packageInfo }) {
   return (
     <>
       <div
@@ -19,7 +19,7 @@ export default function CardPackageTicket({ detailEventData, idEvent, num, packa
             {detailEventData.ticketPrice}
           </h3>
           <Link
-            href={`/all-event/detail/${idEvent}/package-${num}`}
+            href={`/package/detail-pembayaran/${num}`}
             className="btn-package flex justify-center items-center p-2 text-[0.65rem] Mobile-M:text-xs rounded-md cursor-pointer bg-primary text-[#EEEEEE]"
           >
             Select Package

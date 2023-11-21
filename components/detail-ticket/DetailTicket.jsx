@@ -122,7 +122,6 @@ export default function DetailTicket({ id }) {
                     <>
                       <CardPackageTicket
                         detailEventData={detailEventData}
-                        idEvent={id}
                         num={info.id}
                         packageInfo={info}
                         key={info.id}
