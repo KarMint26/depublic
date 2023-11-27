@@ -5,7 +5,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./styles/**/*.css",
-    "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/flowbite-react/**/*.js",
+    "./pages/**/*.{ts,tsx}",
+    "./public/**/*.html",
   ],
   theme: {
     screens: {
@@ -14,7 +16,7 @@ module.exports = {
     },
     extend: {
       width: {
-        "pwa": "425px",
+        pwa: "425px",
       },
       boxShadow: {
         "top-bar": "0 8px 16px rgba(0,0,0,0.04)",
@@ -25,20 +27,20 @@ module.exports = {
         "bg-primary": "#FAFAFA",
         "landing-top": "#FDF9F0",
         "nav-clr": "#FFFFFF",
-        "primary": "#A103D3",
-        "body": "#C5C5C5",
+        primary: "#A103D3",
+        body: "#C5C5C5",
         "slider-color": "#360146",
       },
       textColor: {
-        "primary": "#A103D3",
+        primary: "#A103D3",
         "slider-color": "#360146",
       },
       borderColor: {
-        "line": "#EEEEEE",
-        "primary": "#A103D3",
+        line: "#EEEEEE",
+        primary: "#A103D3",
       },
       borderRadius: {
-        "btn": "12px",
+        btn: "12px",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
