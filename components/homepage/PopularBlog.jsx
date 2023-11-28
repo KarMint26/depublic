@@ -69,9 +69,7 @@ export default function PopularBlog() {
           style={{ transform: `translateX(-${slideTranslate}rem)` }}
         >
           {blogData.map((data) => (
-            <>
-              <CardBlog dataBlog={data} />
-            </>
+            <CardBlog dataBlog={data} key={data.id} />
           ))}
         </div>
       </div>

@@ -69,9 +69,7 @@ export default function UpcomingEvent({ upcomingEventData }) {
           style={{ transform: `translateX(-${slideTranslate}rem)` }}
         >
           {upcomingEventData.map((data) => (
-            <>
-              <CardEvent dataEvent={data} />
-            </>
+            <CardEvent dataEvent={data} key={data.id} />
           ))}
         </div>
       </div>

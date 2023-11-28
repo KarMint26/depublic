@@ -35,18 +35,16 @@ const SliderEvent = ({ carouselImage }) => {
           onSlideChange={() => console.log("slide change")}
         >
           {carouselImage.map((card) => (
-            <>
-              <SwiperSlide key={card.id}>
-                <Image
-                  src={card.url}
-                  width={350}
-                  height={300}
-                  alt={card.alt}
-                  className="event-images rounded-[14px] Mobile-M:rounded-[16px] Mobile-L:rounded-[20px] cursor-pointer"
-                  onClick={() => router.push(`/all-event/detail/${card.id}`)}
-                />
-              </SwiperSlide>
-            </>
+            <SwiperSlide key={card.id}>
+              <Image
+                src={card.url}
+                width={350}
+                height={300}
+                alt={card.alt}
+                className="event-images rounded-[14px] Mobile-M:rounded-[16px] Mobile-L:rounded-[20px] cursor-pointer"
+                onClick={() => router.push(`/all-event/detail/${card.id}`)}
+              />
+            </SwiperSlide>
           ))}
         </Swiper>
       </div>

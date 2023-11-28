@@ -119,14 +119,12 @@ export default function DetailTicket({ id }) {
                   } overflow-hidden flex justify-start items-center flex-col gap-4 w-full transition-all duration-300 ease-in-out pb-14`}
                 >
                   {packageInfo.map((info) => (
-                    <>
-                      <CardPackageTicket
-                        detailEventData={detailEventData}
-                        num={info.id}
-                        packageInfo={info}
-                        key={info.id}
-                      />
-                    </>
+                    <CardPackageTicket
+                      detailEventData={detailEventData}
+                      num={info.id}
+                      packageInfo={info}
+                      key={info.id}
+                    />
                   ))}
                   <div
                     className="btn-see-more"
@@ -180,9 +178,7 @@ export default function DetailTicket({ id }) {
                   </h1>
                   <div className="wrapper-info w-full flex flex-col justify-center items-center gap-3">
                     {moreInfoPackage.map((data) => (
-                      <>
-                        <CardMoreInfo moreInfo={data} key={data.id} />
-                      </>
+                      <CardMoreInfo moreInfo={data} key={data.id} />
                     ))}
                   </div>
                 </div>
@@ -331,11 +327,7 @@ export default function DetailTicket({ id }) {
           </>
         )}
       </div>
-      {user && (
-        <>
-          <Footer />
-        </>
-      )}
+      {user && <Footer />}
     </>
   );
 }

@@ -25,7 +25,7 @@ export default function DetailPembayaran({ id }) {
   return (
     <>
       <div
-        className={`wrapper-detail-pembayaran w-full h-fit ${
+        className={`wrapper-detail-pembayaran w-full h-[600px] ${
           page >= 2 ? "pt-[4.4rem] Mobile-M:pt-[4.5rem] Mobile-L:pt-[5rem]" : "pt-24 Mobile-M:pt-28"
         }`}
       >

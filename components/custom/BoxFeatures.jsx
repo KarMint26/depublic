@@ -44,23 +44,22 @@ export default function BoxFeatures() {
           <IoIosArrowForward className="text-lg Mobile-L:text-xl rotate-180" />
         </div>
         {featuresData.map((data) => (
-          <>
-            <div
-              className="feat flex justify-center items-center flex-col gap-2 Mobile-L:gap-3 cursor-pointer"
-              onClick={() => handleFeatureClick(data.name)}
-            >
-              <Image
-                src={data.image}
-                alt="features-image"
-                width={50}
-                height={50}
-                className="Mobile-L:scale-100 scale-[0.80]"
-              />
-              <h1 className="text-xs Mobile-L:text-sm font-medium">
-                {data.name}
-              </h1>
-            </div>
-          </>
+          <div
+            className="feat flex justify-center items-center flex-col gap-2 Mobile-L:gap-3 cursor-pointer"
+            onClick={() => handleFeatureClick(data.name)}
+            key={data.name}
+          >
+            <Image
+              src={data.image}
+              alt="features-image"
+              width={50}
+              height={50}
+              className="Mobile-L:scale-100 scale-[0.80]"
+            />
+            <h1 className="text-xs Mobile-L:text-sm font-medium">
+              {data.name}
+            </h1>
+          </div>
         ))}
       </div>
     </>

@@ -288,3 +288,13 @@ input:focus {
   border-radius: 1rem;
 }
 
+/* Detail Pembayaran */
+.flags-sl {
+  width: 50px;
+  height: 53px;
+  background-color: #DADADA !important;
+  border: none !important;
+  transform: translateY(2px);
+  border-radius: .75rem 0 0 .75rem !important;
+}
+
