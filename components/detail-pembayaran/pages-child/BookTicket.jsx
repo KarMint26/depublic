@@ -19,7 +19,7 @@ const BookTicket = ({ handlePage }) => {
         <div className="title-contact space-y-2">
           <h1 className="text-sm Mobile-M:text-lg font-bold">Your Contact</h1>
           <p className="text-[0.65rem] Mobile-M:text-xs text-[#4D4D4D] w-[90%]">
-            Fill in this form correctly. We'll send the e-ticket to the email
+            Fill in this form correctly. We{"'"}ll send the e-ticket to the email
             address as declared on this page.
           </p>
         </div>
