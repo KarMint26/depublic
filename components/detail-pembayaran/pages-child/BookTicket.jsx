@@ -6,12 +6,14 @@ import PurpleBtn from "@/components/custom/PurpleBtn";
 import { useRouter } from "next/navigation";
 import LoadingForm from "@/components/custom/LoadingForm";
 import AgreeBox from "@/components/custom/AgreeBox";
+import { TicketData } from "@/context/TicketContext";
 
 const BookTicket = ({ handlePagePrev, idTicket }) => {
   const [selectedCountry, setSelectedCountry] = useState("ID");
   const [loading, setLoading] = useState(false);
   const [goNext, setGoNext] = useState(false);
   const router = useRouter();
+  const { handleChangeActiveLink } = TicketData();
 
   const handlePageNext = () => {
     setLoading(true);
@@ -21,13 +23,14 @@ const BookTicket = ({ handlePagePrev, idTicket }) => {
   };
 
   const btnPayNow = () => {
+    handleChangeActiveLink(idTicket);
     router.push(`/package/detail-pembayaran/${idTicket}/select-method`);
-  }
+  };
 
   const btnLater = () => {
     setLoading(false);
     setGoNext(false);
-  }
+  };
 
   return (
     <React.Fragment>
@@ -134,8 +137,8 @@ const BookTicket = ({ handlePagePrev, idTicket }) => {
                 <div className="bg-[#FCF6E8] px-2 py-1 text-[#D49600] w-fit rounded-xl text-[0.55rem] Mobile-M:text-[0.65rem] flex justify-center items-center gap-2">
                   <BiInfoCircle className="text-sm" />
                   <p>
-                    You only need one visitor&apos;s info for all the tickets you
-                    book.
+                    You only need one visitor&apos;s info for all the tickets
+                    you book.
                   </p>
                 </div>
               </div>

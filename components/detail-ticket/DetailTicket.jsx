@@ -157,6 +157,7 @@ export default function DetailTicket({ id }) {
                   height={250}
                   alt="location"
                   className="w-full rounded-2xl"
+                  priority
                 />
                 <div className="container-directions px-5 Mobile-M:px-6">
                   <div

@@ -14,6 +14,7 @@ export default function Footer() {
               width={150}
               height={50}
               className="footer-image"
+              priority
             />
             <p className="tagline-footer">{"Berikan Layanan Terbaik"}</p>
             <div className="social-media">

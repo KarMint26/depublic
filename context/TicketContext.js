@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const TicketContext = createContext();
 
@@ -47,7 +47,6 @@ const upcomingEventData = [
   },
 ];
 
-
 const daysData = [
   {
     id: 1,
@@ -90,66 +89,77 @@ const packageInfo = [
   {
     id: 1,
     namePackage: "CAT 2A (STANDING)",
-    descPackage: "Tempat duduk anda di baris nomer 2 dari pusat konser, selamat menonton",
-    packagePlus: [
-      "Free Cupcake",
-      "Free Snack",
-      "Mineral Water"
-    ],
+    descPackage:
+      "Tempat duduk anda di baris nomer 2 dari pusat konser, selamat menonton",
+    packagePlus: ["Free Cupcake", "Free Snack", "Mineral Water"],
   },
   {
     id: 2,
     namePackage: "CAT 3B (STANDING)",
-    descPackage: "Tempat duduk anda di baris nomer 3 dari Kanan pusat konser, selamat menonton",
-    packagePlus: [
-      "Free Boba Milk",
-      "Free Bread",
-      "Mineral Water"
-    ],
+    descPackage:
+      "Tempat duduk anda di baris nomer 3 dari Kanan pusat konser, selamat menonton",
+    packagePlus: ["Free Boba Milk", "Free Bread", "Mineral Water"],
   },
   {
     id: 3,
     namePackage: "VVIP (STANDING)",
-    descPackage: "Tempat duduk anda di baris paling depan dari pusat konser, selamat menonton",
-    packagePlus: [
-      "Golden Cake",
-      "Free Snack",
-      "Mineral Water"
-    ],
+    descPackage:
+      "Tempat duduk anda di baris paling depan dari pusat konser, selamat menonton",
+    packagePlus: ["Golden Cake", "Free Snack", "Mineral Water"],
   },
   {
     id: 4,
     namePackage: "CAT 4A (STANDING)",
-    descPackage: "Tempat duduk anda di baris nomer 4 dari pusat konser, selamat menonton",
-    packagePlus: [
-      "Free Ice Tea",
-      "Free Snack",
-      "Mineral Water"
-    ],
-  }
-]
+    descPackage:
+      "Tempat duduk anda di baris nomer 4 dari pusat konser, selamat menonton",
+    packagePlus: ["Free Ice Tea", "Free Snack", "Mineral Water"],
+  },
+];
 
 const moreInfoPackage = [
   {
     id: 1,
     infoName: "Ticket Exchange",
-    shortDesc: "Penukaran tiket dilakukan sebagai pelayanan yang baik bagi pengguna agar merasa tidak menyesal setelah membeli.",
+    shortDesc:
+      "Penukaran tiket dilakukan sebagai pelayanan yang baik bagi pengguna agar merasa tidak menyesal setelah membeli.",
   },
   {
     id: 2,
     infoName: "Terms & conditions",
-    shortDesc: "Syarat dan ketentuan berlaku saat pengguna melakukan pembelian tiket event dan harus mematuhi peraturan.",
+    shortDesc:
+      "Syarat dan ketentuan berlaku saat pengguna melakukan pembelian tiket event dan harus mematuhi peraturan.",
   },
   {
     id: 3,
     infoName: "Additional information",
-    shortDesc: "Pembelian tiket event ini diharapkan pengguna dapat merasa terbantu dan efisien dalam pembelian tiket.",
+    shortDesc:
+      "Pembelian tiket event ini diharapkan pengguna dapat merasa terbantu dan efisien dalam pembelian tiket.",
   },
-]
+];
 
 export const TicketContextProvider = ({ children }) => {
+  const [activeLinkId, setActiveLinkId] = useState(0);
+
+  const handleChangeActiveLink = (n) => {
+    setActiveLinkId(n);
+    window.localStorage.setItem("idPayment", n)
+  };
+
+  useEffect(() => {
+    setActiveLinkId(window.localStorage.getItem("idPayment"))
+  },[handleChangeActiveLink])
+
   return (
-    <TicketContext.Provider value={{ upcomingEventData, daysData, packageInfo, moreInfoPackage }}>
+    <TicketContext.Provider
+      value={{
+        upcomingEventData,
+        daysData,
+        packageInfo,
+        moreInfoPackage,
+        activeLinkId,
+        handleChangeActiveLink,
+      }}
+    >
       {children}
     </TicketContext.Provider>
   );

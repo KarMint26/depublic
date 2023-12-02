@@ -33,6 +33,7 @@ export default function NavigationBar({ whatPage }) {
               alt="depublic icon"
               className="cursor-pointer Mobile-L:w-auto w-[50px]"
               onClick={() => router.push("/")}
+              priority
             />
           </div>
         </>
