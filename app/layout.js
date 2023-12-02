@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import { TicketContextProvider } from "@/context/TicketContext";
 import { BlogContextProvider } from "@/context/BlogContext";
 import { AuthContextProvider } from "@/context/AuthContext";
+import { TimeProvider } from "@/context/TimeContext";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -23,13 +24,15 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={montserrat.className}>
         <AuthContextProvider>
-          <TicketContextProvider>
-            <BlogContextProvider>
-              <div className="m-auto flex justify-center items-center">
-                {children}
-              </div>
-            </BlogContextProvider>
-          </TicketContextProvider>
+          <TimeProvider>
+            <TicketContextProvider>
+              <BlogContextProvider>
+                <div className="m-auto flex justify-center items-center">
+                  {children}
+                </div>
+              </BlogContextProvider>
+            </TicketContextProvider>
+          </TimeProvider>
         </AuthContextProvider>
       </body>
     </html>

@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import LoadingForm from "@/components/custom/LoadingForm";
 import AgreeBox from "@/components/custom/AgreeBox";
 import { TicketData } from "@/context/TicketContext";
+import { getTimeLeft } from "@/context/TimeContext";
 
 const BookTicket = ({ handlePagePrev, idTicket }) => {
   const [selectedCountry, setSelectedCountry] = useState("ID");
@@ -14,12 +15,14 @@ const BookTicket = ({ handlePagePrev, idTicket }) => {
   const [goNext, setGoNext] = useState(false);
   const router = useRouter();
   const { handleChangeActiveLink } = TicketData();
+  const { handleStartTime } = getTimeLeft();
 
   const handlePageNext = () => {
     setLoading(true);
     setTimeout(() => {
       setGoNext(true);
     }, 3000);
+    handleStartTime();
   };
 
   const btnPayNow = () => {
