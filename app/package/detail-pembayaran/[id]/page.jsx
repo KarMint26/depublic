@@ -1,4 +1,3 @@
-import NavigationBar from "@/components/custom/NavigationBar";
 import DetailPembayaran from "@/components/detail-pembayaran/DetailPembayaran";
 import React from "react";
 
@@ -16,10 +15,7 @@ export const metadata = {
 const PackageDetail = ({ params }) => {
   return (
     <>
-      <div className="homepage-container bg-[#FAFAFA]">
-        <NavigationBar whatPage="detailPayment" />
-        <DetailPembayaran id={params.package[2]} />
-      </div>
+      <DetailPembayaran id={params.id} />
     </>
   );
 };

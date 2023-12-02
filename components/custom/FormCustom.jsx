@@ -103,7 +103,7 @@ export default function FormCustom({ dataForm, errorHandle }) {
   return (
     <>
       <div className="signup h-[880px] bg-white w-full">
-        {loading && <LoadingForm />}
+        {loading && <LoadingForm whatType="formAuth" />}
         <div className="top-block w-full h-[70px] Mobile-L:h-[80px]"></div>
         <Image
           src="/assets/decoration/Union.png"

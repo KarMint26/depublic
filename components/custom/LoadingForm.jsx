@@ -1,11 +1,13 @@
 import Image from "next/image";
 
-export default function LoadingForm() {
+export default function LoadingForm({ whatType }) {
   return (
     <>
       <div className="splash-screen bg-white/30 backdrop-blur-sm absolute top-0 w-full h-full z-[99] flex justify-center items-center">
         <div
-          className="flex justify-center items-center flex-col bg-white w-[90%] rounded-2xl gap-5 p-5"
+          className={`flex justify-center items-center flex-col ${
+            whatType === "payment" ? "-translate-y-[9rem]" : ""
+          } bg-white w-[90%] rounded-2xl gap-5 p-5`}
           style={{ boxShadow: "0 0 12px rgba(0,0,0,0.1)" }}
         >
           <Image

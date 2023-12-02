@@ -6,7 +6,6 @@ import React, { useState } from "react";
 import BottomDetail from "./BottomDetail";
 import BodyDetail from "./BodyDetail";
 import BookTicket from "./pages-child/BookTicket";
-import PaymentMethod from "./pages-child/PaymentMethod";
 import PurpleBtn from "../custom/PurpleBtn";
 
 export default function DetailPembayaran({ id }) {
@@ -25,7 +24,7 @@ export default function DetailPembayaran({ id }) {
   return (
     <>
       <div
-        className={`wrapper-detail-pembayaran w-full h-[600px] ${
+        className={`wrapper-detail-pembayaran w-full h-fit ${
           page >= 2 ? "pt-[4.4rem] Mobile-M:pt-[4.5rem] Mobile-L:pt-[5rem]" : "pt-24 Mobile-M:pt-28"
         }`}
       >
@@ -46,10 +45,8 @@ export default function DetailPembayaran({ id }) {
             <BottomDetail namePackage={packageInfoById.namePackage} />
             <PurpleBtn textContent="Next" nextHandler={handlerNextPagination} />
           </>
-        ) : page === 2 ? (
-          <BookTicket handlePage={handlerPrevPagination} />
         ) : (
-          <PaymentMethod />
+          <BookTicket handlePagePrev={handlerPrevPagination} idTicket={id} />
         )}
       </div>
     </>
