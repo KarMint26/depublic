@@ -8,7 +8,9 @@ export const TimeProvider = ({ children }) => {
   const [timeLeft, setTimeLeft] = React.useState(1800);
 
   const countdown = () => {
-    setTimeLeft(timeLeft - 1);
+    if(timeLeft >= 0){
+      setTimeLeft(timeLeft - 1);
+    }
   };
 
   const handleStartTime = () => {
