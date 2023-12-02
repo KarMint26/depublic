@@ -11,7 +11,7 @@ import PurpleBtn from "../custom/PurpleBtn";
 export default function DetailPembayaran({ id }) {
   const { packageInfo } = TicketData();
   const packageInfoById = packageInfo[id - 1];
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
 
   const handlerNextPagination = () => {
     setPage((prev) => (prev += 1));

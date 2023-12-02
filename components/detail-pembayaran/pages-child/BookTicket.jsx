@@ -134,7 +134,7 @@ const BookTicket = ({ handlePagePrev, idTicket }) => {
                 <div className="bg-[#FCF6E8] px-2 py-1 text-[#D49600] w-fit rounded-xl text-[0.55rem] Mobile-M:text-[0.65rem] flex justify-center items-center gap-2">
                   <BiInfoCircle className="text-sm" />
                   <p>
-                    You only need one visitor's info for all the tickets you
+                    You only need one visitor&apos;s info for all the tickets you
                     book.
                   </p>
                 </div>
@@ -201,7 +201,7 @@ const BookTicket = ({ handlePagePrev, idTicket }) => {
           <div className="w-full flex items-center py-4 gap-2">
             <BiCoin className="text-lg text-[#D49600] rotate-[270deg]" />
             <p className="text-[0.65rem] text-[#4D4D4D] Mobile-M:text-[0.7rem]">
-              You'll get 25,058 points
+              You&apos;ll get 25,058 points
             </p>
           </div>
         </div>
