@@ -18,6 +18,10 @@ const BookTicket = ({ handlePagePrev, idTicket }) => {
   const { handleStartTime } = getTimeLeft();
 
   const handlePageNext = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     setLoading(true);
     setTimeout(() => {
       setGoNext(true);

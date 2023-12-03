@@ -27,6 +27,7 @@ export default function DetailTicket({ id }) {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
+      window.localStorage.setItem("eventId", JSON.stringify(detailEventData))
       const handleScroll = () => {
         if (window.scrollY > 450) {
           setViewPackage(true);
