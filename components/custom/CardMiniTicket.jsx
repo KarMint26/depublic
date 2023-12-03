@@ -10,7 +10,7 @@ export default function CardMiniTicket() {
           <Image src="/assets/features/features-1.png" width={30} height={30} alt="ticket-icon" />
         </div>
         <div className="flex flex-col">
-          <h1 className="text-[0.65rem] Mobile-M:text-[0.75rem] font-semibold">
+          <h1 className="text-[0.65rem] Mobile-M:text-[0.75rem] font-bold">
             Ticket Event
           </h1>
           <p className="text-[0.5rem] Mobile-M:text-[0.6rem]">

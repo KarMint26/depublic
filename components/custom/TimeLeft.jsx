@@ -19,7 +19,7 @@ export default function TimeLeft() {
       <h1 className="text-xs Mobile-M:text-sm font-bold">
         Complete payment in
       </h1>
-      <div className="px-4 py-2 Mobile-M:text-base text-xs bg-[#FBF6EC] rounded-[7px]">
+      <div className="px-4 py-2 Mobile-M:text-base text-xs text-[#4D4D4D] font-medium bg-[#FBF6EC] rounded-[7px]">
         00 : {minutes.toString().padStart(2, "0")} :{" "}
         {seconds.toString().padStart(2, "0")}
       </div>
