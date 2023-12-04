@@ -3,13 +3,13 @@
 import { useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 
-export default function CardMoreInfo({ moreInfo }) {
+export default function CardMoreInfo({ moreInfo, type }) {
   const [seeMoreInfo, setSeeMoreInfo] = useState(false);
 
   return (
     <>
       <div
-        className={`more-info-box transition-all duration-300 flex overflow-hidden justify-center items-start h-fit flex-col text-xs w-full cursor-pointer bg-bg-primary Mobile-M:text-sm p-2 Mobile-M:p-3`}
+        className={`more-info-box transition-all duration-300 flex overflow-hidden justify-center items-start h-fit flex-col text-xs w-full cursor-pointer bg-bg-primary Mobile-M:text-sm p-2 Mobile-M:p-3 ${type === "orderDetail" ? "border border-[#DADADA] rounded-[8px]" : ""}`}
         style={{ boxShadow: "0 4px 10px rgba(0,0,0,0.05)" }}
         onClick={() => setSeeMoreInfo((prev) => !prev)}
       >

@@ -10,7 +10,7 @@ import PAC from "@/components/custom/PAC";
 import DetailsTicketOrder from "./DetailsTicketOrder";
 
 const OrderDetail = () => {
-  const [page, setPage] = React.useState(1);
+  const [page, setPage] = React.useState(2);
   const [detailEvent, setDetailEvent] = React.useState([]);
   const [pac, setPac] = React.useState(false);
   const { upcomingEventData } = TicketData();
@@ -28,6 +28,10 @@ const OrderDetail = () => {
   const handleNextPage = () => {
     setPage((page) => (page += 1));
   };
+
+  const handlePrevPage = () => {
+    setPage((page) => (page -= 1));
+  }
 
   return (
     <div className="wrapper w-full h-fit relative">
@@ -65,7 +69,7 @@ const OrderDetail = () => {
             </div>
           </>
         ) : (
-          <DetailsTicketOrder />
+          <DetailsTicketOrder handlePrevPage={handlePrevPage} />
         )}
       </div>
     </div>

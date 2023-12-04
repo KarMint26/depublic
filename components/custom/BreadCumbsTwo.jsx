@@ -1,35 +1,35 @@
 "use client"
 
 import { TicketData } from "@/context/TicketContext";
+import { useRouter } from "next/navigation";
 import React from "react";
-import Link from "next/link"
 import { IoIosArrowForward } from "react-icons/io";
 
-export default function BreadCumbsTwo() {
+export default function BreadCumbsTwo({ handlePrevPage }) {
   const { activeLinkId } = TicketData();
+  const router = useRouter();
 
   return (
     <div className="breadcumbs flex justify-center items-center gap-3 self-start">
-      <Link
-        href={`/package/detail-pembayaran/${activeLinkId}/select-method/payment`}
+      <div
+        onClick={() => router.push(`/package/detail-pembayaran/${activeLinkId}/select-method/payment`)}
         className="text-[0.6rem] Mobile-M:text-[0.65rem] Mobile-L:text-xs cursor-pointer font-medium text-[#A6A6A6]"
       >
         Complete Payment
-      </Link>
+      </div>
       <IoIosArrowForward className="text-[#A6A6A6]" />
-      <Link
-        href={`/package/detail-pembayaran/${activeLinkId}/select-method/payment`}
+      <div
+        onClick={() => handlePrevPage()}
         className="text-[0.6rem] Mobile-M:text-[0.65rem] Mobile-L:text-xs cursor-pointer font-medium text-[#A6A6A6]"
       >
         Pick an Action
-      </Link>
+      </div>
       <IoIosArrowForward className="text-[#A6A6A6]" />
-      <Link
-        href="#"
+      <div
         className="text-[0.6rem] Mobile-M:text-[0.65rem] Mobile-L:text-xs cursor-pointer font-medium text-primary"
       >
         See Detail
-      </Link>
+      </div>
     </div>
   );
 }

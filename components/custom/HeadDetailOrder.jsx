@@ -4,7 +4,7 @@ import { IoIosArrowForward } from "react-icons/io";
 export default function HeadDetailOrder({ detailEvent }) {
   return (
     <div
-      className="w-full px-[0.6rem] pb-2 Mobile-M:px-3 Mobile-M:pb-3 bg-white rounded-[10px] mt-7"
+      className="w-full px-[0.6rem] Mobile-M:px-3 Mobile-M:pb-3 Mobile-M:pt-0 bg-white rounded-[10px] mt-7"
       style={{ boxShadow: "0 6px 20px rgba(0,0,0,0.1)" }}
     >
       <div className="w-full flex justify-between border-b mb-3 border-[#DADADA]">
@@ -13,7 +13,7 @@ export default function HeadDetailOrder({ detailEvent }) {
             ? detailEvent.titleEvent.slice(0, 16) + "..."
             : detailEvent.titleEvent}
         </h1>
-        <div className="order-id bg-[#FBF6EC] self-center text-[0.65rem] Mobile-M:text-xs text-[#D49600] rounded-full w-[80%] text-center py-2 Mobile-M:mb-6 translate-y-[.7rem]">
+        <div className="order-id bg-[#FBF6EC] self-center text-[0.65rem] Mobile-M:text-xs text-[#D49600] rounded-full w-[80%] text-center py-2 Mobile-M:mb-6 Mobile-M:translate-y-[.7rem]">
           Order ID: 1243776184
         </div>
       </div>

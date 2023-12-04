@@ -180,7 +180,7 @@ export default function DetailTicket({ id }) {
                   </h1>
                   <div className="wrapper-info w-full flex flex-col justify-center items-center gap-3">
                     {moreInfoPackage.map((data) => (
-                      <CardMoreInfo moreInfo={data} key={data.id} />
+                      <CardMoreInfo moreInfo={data} key={data.id} type="infoPackage" />
                     ))}
                   </div>
                 </div>
