@@ -13,7 +13,7 @@ export default function PAC({ setPac, handlePage }) {
         <div className="w-full flex justify-between items-center mb-2">
           <h1 className="font-bold text-sm Mobile-M:text-lg">Pick an action</h1>
           <IoCloseOutline
-            className="text-xl cursor-pointer text-[#B71926]"
+            className="text-2xl cursor-pointer text-[#B71926]"
             onClick={() => setPac(false)}
           />
         </div>
