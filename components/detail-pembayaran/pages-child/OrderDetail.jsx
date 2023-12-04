@@ -10,7 +10,7 @@ import PAC from "@/components/custom/PAC";
 import DetailsTicketOrder from "./DetailsTicketOrder";
 
 const OrderDetail = () => {
-  const [page, setPage] = React.useState(2);
+  const [page, setPage] = React.useState(1);
   const [detailEvent, setDetailEvent] = React.useState([]);
   const [pac, setPac] = React.useState(false);
   const { upcomingEventData } = TicketData();
