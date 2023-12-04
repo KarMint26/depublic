@@ -108,7 +108,7 @@ export default function CardBodyPaymentDetail({ detailEvent }) {
         </div>
       </div>
       <div className="flex flex-col gap-2 py-4 Mobile-M:py-5">
-        <h3 className="font-bold text-sm">What's Included</h3>
+        <h3 className="font-bold text-sm">What&apos;s Included</h3>
         <div className="flex items-center gap-2 text-[0.65rem] Mobile-M:text-xs text-[#4D4D4D]">
           <IoTicketOutline className="text-lg rotate-[225deg]" />
           Entrance Ticket
