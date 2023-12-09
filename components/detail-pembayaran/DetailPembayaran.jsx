@@ -2,7 +2,7 @@
 
 import { TicketData } from "@/context/TicketContext";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BottomDetail from "./BottomDetail";
 import BodyDetail from "./BodyDetail";
 import BookTicket from "./pages-child/BookTicket";
@@ -20,6 +20,12 @@ export default function DetailPembayaran({ id }) {
   const handlerPrevPagination = () => {
     setPage((prev) => (prev -= 1));
   }
+
+  useEffect(() => {
+    if(typeof window !== 'undefined'){
+      window.localStorage.setItem("packageInfo", JSON.stringify(packageInfoById))
+    }
+  },[])
 
   return (
     <>

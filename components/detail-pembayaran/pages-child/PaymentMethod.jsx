@@ -1,24 +1,33 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { TicketData } from "@/context/TicketContext";
 import BreadCumbs from "@/components/custom/BreadCumbs";
 import TimeLeft from "@/components/custom/TimeLeft";
 import { IoIosArrowForward } from "react-icons/io";
-import Image from "next/image";
 import { IoPricetagOutline } from "react-icons/io5";
 import { BiCoin } from "react-icons/bi";
 import PurpleBtn from "@/components/custom/PurpleBtn";
 import { useRouter } from "next/navigation";
 import CardMiniTicket from "@/components/custom/CardMiniTicket";
+import PromoVoucher from "../modals/PromoVoucher";
+import PricingDetails from "../modals/PricingDetails";
+import OrderSummary from "../modals/OrderSummary";
 
 const PaymentMethod = () => {
   const { activeLinkId } = TicketData();
   const router = useRouter();
+  const [selPayMethod, setSelPayMenthod] = useState(false);
+  const [orderSummary, setOrderSummary] = useState(false);
+  const [promo, setPromo] = useState(false);
+  const [pricingDetails, setPricingDetails] = useState(false);
 
   return (
-    <div className="wrapper w-full h-fit">
+    <div className="wrapper w-full h-fit relative">
       <div className="head-all-event pt-28 pb-10 w-full h-fit flex justify-center items-center flex-col gap-5 Mobile-M:gap-6 Mobile-L:gap-8 px-2 Mobile-M:px-4 Mobile-L:px-6">
+        {promo && <PromoVoucher setHandler={setPromo} />}
+        {pricingDetails && <PricingDetails setHandler={setPricingDetails} />}
+        {orderSummary && <OrderSummary setHandler={setOrderSummary} />}
         <BreadCumbs idPembayaran={activeLinkId} whatLink="methodPay" />
         <TimeLeft />
         <div
@@ -68,9 +77,12 @@ const PaymentMethod = () => {
           <div className="order-id bg-[#FBF6EC] text-[0.65rem] Mobile-M:text-xs text-[#D49600] rounded-full w-full text-center py-2 mb-5 Mobile-M:mb-6">
             Order ID: 1243776184
           </div>
-          <CardMiniTicket />
+          <CardMiniTicket setHandler={setOrderSummary} />
           <div className="mb-5 Mobile-M:mb-6 flex flex-col gap-3 py-3 border-b border-dashed border-[#DADADA] w-full text-[#A6A6A6]">
-            <div className="rounded-lg p-2 flex justify-between items-center cursor-pointer border border-[#DADADA]">
+            <div
+              className="rounded-lg p-2 flex justify-between items-center cursor-pointer border border-[#DADADA]"
+              onClick={() => setPromo(true)}
+            >
               <label
                 htmlFor="promo"
                 className="flex items-center gap-3 text-[0.65rem] Mobile-M:text-xs"
@@ -85,7 +97,7 @@ const PaymentMethod = () => {
                 className="w-3 h-3 border-[#A6A6A6]"
               />
             </div>
-            <div className="rounded-lg p-2 flex justify-between items-center cursor-pointer border border-[#DADADA]">
+            <div className="rounded-lg p-2 flex justify-between items-center cursor-pointer border border-[#DADADA]" onClick={() => setPricingDetails(true)}>
               <label
                 htmlFor="promo"
                 className="flex items-center gap-3 text-[0.65rem] Mobile-M:text-xs"
