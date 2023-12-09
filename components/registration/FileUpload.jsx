@@ -31,7 +31,9 @@ export default function FileUpload({ chosenFile, setChosenFile, typeFile, textNa
             id={`file-chosen-${typeFile}`}
             className="text-[#4D4D4D] text-xs Mobile-M:text-sm absolute left-[10rem] top-[0.8rem]"
           >
-            {chosenFile}
+            {chosenFile && chosenFile?.length > 15
+            ? chosenFile.slice(0, 17) + "..."
+            : chosenFile}
           </p>
         </div>
       </div>
