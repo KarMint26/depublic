@@ -18,7 +18,7 @@ const blogData = [
     id: 2,
     titleBlog: "Konser Bahagia",
     shortDesc:
-      "Konser adalah pengalaman yang luar biasa di mana kita dapat merasakan kebahagiaan sejati melalui musik.",
+      "Konser adalah pengalaman yang luar biasa di mana kita dapat merasakan kebahagiaan melalui musik.",
     imagePath: "/assets/blogs/blog-images-2.png",
     alt: "upcoming-event-2",
     tgl: "Kamis, Juli 12",
@@ -36,7 +36,7 @@ const blogData = [
     id: 4,
     titleBlog: "Penyanyi Favorit",
     shortDesc:
-      "Setiap orang memiliki penyanyi favorit yang lagu-lagu mereka adalah pengiring dalam setiap tahap hidup.",
+      "Setiap orang memiliki penyanyi favorit yang lagu-lagu mereka adalah pengiring setiap hidup.",
     imagePath: "/assets/blogs/blog-images-4.png",
     alt: "upcoming-event-4",
     tgl: "Selasa, April 16",
