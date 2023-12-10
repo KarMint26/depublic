@@ -72,7 +72,7 @@ export default function OrderSummary({ setHandler }) {
               Contact Details
             </div>
             <p className="text-[0.6rem] Mobile-M:text-[0.7rem] mb-3">
-              Hubungi Kontak Dibawah
+              Call the contact below
             </p>
             <p className="text-[0.6rem] Mobile-M:text-[0.7rem] mb-1">
               Phone {""} : +628123456789

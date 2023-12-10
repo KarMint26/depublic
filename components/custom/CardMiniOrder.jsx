@@ -2,7 +2,7 @@ import React from "react";
 import CardMiniTicket from "./CardMiniTicket";
 import { IoIosArrowForward } from "react-icons/io";
 
-export default function CardMiniOrder() {
+export default function CardMiniOrder({ setHandler }) {
   return (
     <div
       className="rounded-[10px] w-full p-2 Mobile-M:p-3 py-3 Mobile-M:py-4 flex flex-col"
@@ -11,7 +11,7 @@ export default function CardMiniOrder() {
       <p className="text-[0.65rem] text-xs text-[#4D4D4D] pb-3">
         Order ID: 1234776184
       </p>
-      <CardMiniTicket />
+      <CardMiniTicket setHandler={setHandler} />
       <div className="w-full flex justify-between items-center border-t border-dashed border-[#DADADA] pt-3 mt-3">
         <h1 className="text-xs Mobile-M:text-sm font-bold">Total Payment</h1>
         <div className="flex justify-center items-center gap-2">
