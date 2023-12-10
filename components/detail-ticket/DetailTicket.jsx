@@ -23,11 +23,12 @@ export default function DetailTicket({ id }) {
   const detailEventData = upcomingEventData[id - 1];
   const [seeMore, setSeeMore] = useState(false);
   const [viewPackage, setViewPackage] = useState(false);
+  const [activeIdScroll, setActiveIdScroll] = useState("#summary");
   const { user } = UserAuth();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      window.localStorage.setItem("eventId", JSON.stringify(detailEventData))
+      window.localStorage.setItem("eventId", JSON.stringify(detailEventData));
       const handleScroll = () => {
         if (window.scrollY > 450) {
           setViewPackage(true);
@@ -85,17 +86,56 @@ export default function DetailTicket({ id }) {
 
         <div className="w-full h-fit pt-8 pb-4">
           <div className="btn-menu flex justify-center items-center gap-4 Mobile-M:gap-5 Mobile-L:gap-7 border-b border-[#A6A6A6] text-[#A6A6A6] text-[0.6rem] Mobile-M:text-[0.65rem] Mobile-L:text-xs">
-            <div className="box-menu cursor-pointer pb-3 border-b border-primary text-primary font-bold">
+            <Link
+              href="#summary"
+              className={`box-menu cursor-pointer pb-3 border-b ${
+                activeIdScroll === "#summary" &&
+                "border-primary text-primary font-bold"
+              }`}
+              onClick={() => setActiveIdScroll("#summary")}
+            >
               Summary
-            </div>
-            <div className="box-menu cursor-pointer pb-3 border-b">
+            </Link>
+            <Link
+              href="#highlight"
+              className={`box-menu cursor-pointer pb-3 border-b ${
+                activeIdScroll === "#highlight" &&
+                "border-primary text-primary font-bold"
+              }`}
+              onClick={() => setActiveIdScroll("#highlight")}
+            >
               Highlighted
-            </div>
-            <div className="box-menu cursor-pointer pb-3 border-b">Package</div>
-            <div className="box-menu cursor-pointer pb-3 border-b">
+            </Link>
+            <Link
+              href="#package"
+              className={`box-menu cursor-pointer pb-3 border-b ${
+                activeIdScroll === "#package" &&
+                "border-primary text-primary font-bold"
+              }`}
+              onClick={() => setActiveIdScroll("#package")}
+            >
+              Package
+            </Link>
+            <Link
+              href="#location"
+              className={`box-menu cursor-pointer pb-3 border-b ${
+                activeIdScroll === "#location" &&
+                "border-primary text-primary font-bold"
+              }`}
+              onClick={() => setActiveIdScroll("#location")}
+            >
               Location
-            </div>
-            <div className="box-menu cursor-pointer pb-3 border-b">Order</div>
+            </Link>
+            <Link
+              href="#order"
+              className={`box-menu cursor-pointer pb-3 border-b ${
+                activeIdScroll === "#order" &&
+                "border-primary text-primary font-bold"
+              }`}
+              onClick={() => setActiveIdScroll("#order")}
+            >
+              Order
+            </Link>
           </div>
         </div>
 
@@ -148,7 +188,10 @@ export default function DetailTicket({ id }) {
                 </div>
               </div>
 
-              <div className="location-package w-full pt-6 Mobile-M:pt-8">
+              <div
+                className="location-package w-full pt-6 Mobile-M:pt-8"
+                id="location"
+              >
                 <h1 className="text-sm Mobile-M:text-[0.9rem] Mobile-L:text-[1rem] px-5 Mobile-M:px-6 font-bold">
                   Location
                 </h1>
@@ -174,13 +217,20 @@ export default function DetailTicket({ id }) {
                     </div>
                   </div>
                 </div>
-                <div className="more-info mt-8 Mobile-M:mt-10 w-full flex justify-center items-start flex-col gap-5 px-5 Mobile-M:px-6">
+                <div
+                  id="order"
+                  className="more-info mt-8 Mobile-M:mt-10 w-full flex justify-center items-start flex-col gap-5 px-5 Mobile-M:px-6"
+                >
                   <h1 className="text-sm Mobile-M:text-[0.9rem] Mobile-L:text-[1rem] font-bold">
                     More Info
                   </h1>
                   <div className="wrapper-info w-full flex flex-col justify-center items-center gap-3">
                     {moreInfoPackage.map((data) => (
-                      <CardMoreInfo moreInfo={data} key={data.id} type="infoPackage" />
+                      <CardMoreInfo
+                        moreInfo={data}
+                        key={data.id}
+                        type="infoPackage"
+                      />
                     ))}
                   </div>
                 </div>

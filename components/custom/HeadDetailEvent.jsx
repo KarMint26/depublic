@@ -3,7 +3,7 @@ import { PiMapPin } from "react-icons/pi";
 export default function HeadDetailEvent({ detailEventData }) {
   return (
     <>
-      <div className="head-title flex justify-start items-center flex-col">
+      <div id="summary" className="head-title flex justify-start items-center flex-col">
         <div className="head-card flex justify-start items-center self-start text-xs">
           <div className="country flex justify-center items-center gap-2 pr-3 border-r border-[#DADADA] text-[#4D4D4D]">
             <PiMapPin className="text-lg" />
@@ -27,7 +27,7 @@ export default function HeadDetailEvent({ detailEventData }) {
           </h3>
         </div>
       </div>
-      <div className="highlight pb-4">
+      <div className="highlight pb-4" id="highlight">
         <h1 className="font-bold text-sm Mobile-L:text-lg mb-3">Highlight</h1>
         <ul className="text-[#4D4D4D] text-[0.6rem] flex justify-center items-start gap-[0.15rem] flex-col">
           <li className="list-item pl-4 relative">

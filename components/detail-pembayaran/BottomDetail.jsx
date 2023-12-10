@@ -8,6 +8,7 @@ export default function BottomDetail({ namePackage }) {
   const [count, setCount] = React.useState(0);
   const [countPlus, setCountPlus] = React.useState(false);
   const [countMinus, setCountMinus] = React.useState(false);
+  const [date, setDate] = React.useState("2023-30-08");
 
   return (
     <div className="bottom-detail px-6 flex justify-center items-center flex-col gap-3 Mobile-M:gap-4 pt-3 pb-5 Mobile-M:pt-4 Mobile-M:pb-6 w-full h-fit bg-[#FAFAFA]">
@@ -16,16 +17,32 @@ export default function BottomDetail({ namePackage }) {
         style={{ boxShadow: "0 6px 20px rgba(0,0,0,0.1)" }}
       >
         <h1 className="text-[0.65rem] Mobile-M:text-xs font-bold pb-3">Date</h1>
-        <div className="date-card h-fit flex justify-between w-full items-center gap-2">
+        <div
+          id="datepicker"
+          className="relative date-card h-fit flex justify-between w-full items-center gap-2"
+        >
+          <input
+            type="date"
+            name="datepicker"
+            id="dateticket"
+            className="absolute w-full h-full top-0 right-0 z-10 opacity-0"
+            onChange={({ target }) => setDate(target.value)}
+          />
           <div className="select-date rounded-[10px] border border-[#EEEEEE] bg-[#FAFAFA] w-[85%] p-2 h-fit">
             <p className="text-[0.65rem] Mobile-M:text-xs text-[#4D4D4D] font-normal">
               Select Date
             </p>
-            <p className="text-xs Mobile-M:text-[0.85rem] font-bold text-primary">
-              2023-30-08
+            <p
+              id="text-date"
+              className="text-xs Mobile-M:text-[0.85rem] font-bold text-primary"
+            >
+              {date}
             </p>
           </div>
-          <div className="select-cal rounded-[10px] bg-[#FAFAFA] h-[50px] cursor-pointer p-2 flex justify-center items-center gap-2 border border-[#EEEEEE]">
+          <label
+            htmlFor="dateticket"
+            className="select-cal rounded-[10px] bg-[#FAFAFA] h-[50px] cursor-pointer p-2 flex justify-center items-center gap-2 border border-[#EEEEEE]"
+          >
             <Image
               src="/assets/svg/date.svg"
               alt="date"
@@ -33,7 +50,7 @@ export default function BottomDetail({ namePackage }) {
               height={20}
             />
             <IoIosArrowForward className="text-lg rotate-[90deg]" />
-          </div>
+          </label>
         </div>
       </div>
 

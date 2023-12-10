@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { LuSearch } from "react-icons/lu";
 import { IoIosArrowForward } from "react-icons/io";
 import { PiMapPin } from "react-icons/pi";
@@ -12,7 +12,20 @@ import { useRouter } from "next/navigation";
 
 export default function AllEvent() {
   const { upcomingEventData } = TicketData();
+  const [evData, setEvData] = useState(upcomingEventData);
   const router = useRouter();
+  const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    if (query !== "") {
+      const filteredData = upcomingEventData.filter(
+        (data) => data.titleEvent.toLowerCase().includes(query.toLowerCase())
+      );
+      setEvData(filteredData);
+    } else {
+      setEvData(upcomingEventData);
+    }
+  }, [query]);
 
   return (
     <div className="wrapper w-full h-fit">
@@ -40,6 +53,8 @@ export default function AllEvent() {
               name="search field"
               className="border px-10 Mobile-L:px-12 w-full h-[40px] bg-white/30 backdrop-blur-lg border-[#DADADA] rounded-[10px] text-black placeholder:text-xs Mobile-L:placeholder:text-sm"
               placeholder="Search Activities"
+              value={query}
+              onChange={({ target }) => setQuery(target.value)}
             />
           </div>
           <div className="select-location flex justify-center items-center gap-2 p-2 py-[0.6rem] rounded-lg border bg-[#FDF9F0] border-[#FFF0CC] text-[#D49600] cursor-pointer">
@@ -92,88 +107,112 @@ export default function AllEvent() {
       </div>
 
       <div className="list-all-event flex justify-center items-center flex-col gap-4 pb-12 px-5 Mobile-M:px-6">
-        <p className="text-[#4D4D4D] self-start text-xs">60 Event on result</p>
-        <div className="grid place-items-center gap-4 grid-cols-1 Mobile-M:grid-cols-2">
-          {upcomingEventData.map((dataEvent) => (
-            <div
-              key={dataEvent.id}
-              className="card flex justify-center items-center flex-col gap-[1rem] bg-bg-primary shadow-card-shadow p-3 rounded-[14px] Mobile-M:rounded-[16px] Mobile-L:rounded-[20px] Mobile-L:w-[200px] w-[250px] Mobile-M:w-[180px] h-fit cursor-pointer group"
-              onClick={() => router.push(`/all-event/detail/${dataEvent.id}`)}
-            >
-              <div className="img-container rounded-[14px] Mobile-M:rounded-[16px] w-fit h-fit overflow-hidden">
-                <Image
-                  src={dataEvent.url}
-                  alt={dataEvent.alt}
-                  width={250}
-                  height={200}
-                  className="rounded-[14px] Mobile-M:rounded-[16px] group-hover:scale-125 transition duration-300"
-                  loading="eager"
-                />
-              </div>
-              <div className="desc flex justify-start items-start flex-col gap-2">
-                <div className="head-card flex justify-start items-center text-xs">
-                  <div className="country flex justify-center items-center gap-2 pr-3 border-r border-[#DADADA] text-[#4D4D4D] text-[0.75rem] Mobile-M:text-[0.6rem]">
-                    <PiMapPin className="text-lg" />
-                    {dataEvent.city}
+        <p className="text-[#4D4D4D] self-start text-xs">{(evData.length)*2} Event on result</p>
+        <div
+          className={`grid place-items-center gap-4 ${
+            evData.length > 0 && "grid-cols-1 Mobile-M:grid-cols-2"
+          }`}
+        >
+          {evData.length < 1 ? (
+            <div className="text-[#4D4D4D] text-xs Mobile-M:text-sm flex justify-center items-center text-center">
+              Tidak Ada Event
+            </div>
+          ) : (
+            <>
+              {evData.map((dataEvent) => (
+                <div
+                  key={dataEvent.id}
+                  className="card flex justify-center items-center flex-col gap-[1rem] bg-bg-primary shadow-card-shadow p-3 rounded-[14px] Mobile-M:rounded-[16px] Mobile-L:rounded-[20px] Mobile-L:w-[200px] w-[250px] Mobile-M:w-[180px] h-fit cursor-pointer group"
+                  onClick={() =>
+                    router.push(`/all-event/detail/${dataEvent.id}`)
+                  }
+                >
+                  <div className="img-container rounded-[14px] Mobile-M:rounded-[16px] w-fit h-fit overflow-hidden">
+                    <Image
+                      src={dataEvent.url}
+                      alt={dataEvent.alt}
+                      width={250}
+                      height={200}
+                      className="rounded-[14px] Mobile-M:rounded-[16px] group-hover:scale-125 transition duration-300"
+                      loading="eager"
+                    />
                   </div>
-                  <div className="tgl text-primary pl-3 Mobile-L:text-[0.53rem] Mobile-M:text-[0.46rem] text-[0.55rem]">
-                    {dataEvent.tgl}
+                  <div className="desc flex justify-start items-start flex-col gap-2">
+                    <div className="head-card flex justify-start items-center text-xs">
+                      <div className="country flex justify-center items-center gap-2 pr-3 border-r border-[#DADADA] text-[#4D4D4D] text-[0.75rem] Mobile-M:text-[0.6rem]">
+                        <PiMapPin className="text-lg" />
+                        {dataEvent.city}
+                      </div>
+                      <div className="tgl text-primary pl-3 Mobile-L:text-[0.53rem] Mobile-M:text-[0.46rem] text-[0.55rem]">
+                        {dataEvent.tgl}
+                      </div>
+                    </div>
+                    <h1 className="font-bold text-sm">
+                      {dataEvent.titleEvent}
+                    </h1>
+                    <p className="text-[#A6A6A6] text-xs">
+                      {dataEvent.shortDesc}
+                    </p>
+                  </div>
+                  <h1 className="price font-normal self-start text-[0.65rem] Mobile-L:text-xs">
+                    <span className="text-primary font-bold text-xs Mobile-L:text-sm">
+                      {dataEvent.ticketPrice}
+                    </span>
+                    / 1 Person
+                  </h1>
+                  <div className="btn-card flex justify-center items-center py-2 px-3 w-full bg-[#EAF2E2] text-[#0B640D] rounded-[12px] cursor-pointer text-sm">
+                    Tersedia
                   </div>
                 </div>
-                <h1 className="font-bold text-sm">{dataEvent.titleEvent}</h1>
-                <p className="text-[#A6A6A6] text-xs">{dataEvent.shortDesc}</p>
-              </div>
-              <h1 className="price font-normal self-start text-[0.65rem] Mobile-L:text-xs">
-                <span className="text-primary font-bold text-xs Mobile-L:text-sm">
-                  {dataEvent.ticketPrice}
-                </span>
-                / 1 Person
-              </h1>
-              <div className="btn-card flex justify-center items-center py-2 px-3 w-full bg-[#EAF2E2] text-[#0B640D] rounded-[12px] cursor-pointer text-sm">
-                Tersedia
-              </div>
-            </div>
-          ))}
-          {upcomingEventData.map((dataEvent) => (
-            <div
-              key={dataEvent.id}
-              className="card flex justify-center items-center flex-col gap-[1rem] bg-bg-primary shadow-card-shadow p-3 rounded-[14px] Mobile-M:rounded-[16px] Mobile-L:rounded-[20px] Mobile-L:w-[200px] w-[250px] Mobile-M:w-[180px] h-fit cursor-pointer group"
-              onClick={() => router.push(`/all-event/detail/${dataEvent.id}`)}
-            >
-              <div className="img-container rounded-[14px] Mobile-M:rounded-[16px] w-fit h-fit overflow-hidden">
-                <Image
-                  src={dataEvent.url}
-                  alt={dataEvent.alt}
-                  width={250}
-                  height={200}
-                  className="rounded-[14px] Mobile-M:rounded-[16px] group-hover:scale-125 transition duration-300"
-                  loading="eager"
-                />
-              </div>
-              <div className="desc flex justify-start items-start flex-col gap-2">
-                <div className="head-card flex justify-start items-center text-xs">
-                  <div className="country flex justify-center items-center gap-2 pr-3 border-r border-[#DADADA] text-[#4D4D4D] text-[0.75rem] Mobile-M:text-[0.6rem]">
-                    <PiMapPin className="text-lg" />
-                    {dataEvent.city}
+              ))}
+              {evData.map((dataEvent) => (
+                <div
+                  key={dataEvent.id}
+                  className="card flex justify-center items-center flex-col gap-[1rem] bg-bg-primary shadow-card-shadow p-3 rounded-[14px] Mobile-M:rounded-[16px] Mobile-L:rounded-[20px] Mobile-L:w-[200px] w-[250px] Mobile-M:w-[180px] h-fit cursor-pointer group"
+                  onClick={() =>
+                    router.push(`/all-event/detail/${dataEvent.id}`)
+                  }
+                >
+                  <div className="img-container rounded-[14px] Mobile-M:rounded-[16px] w-fit h-fit overflow-hidden">
+                    <Image
+                      src={dataEvent.url}
+                      alt={dataEvent.alt}
+                      width={250}
+                      height={200}
+                      className="rounded-[14px] Mobile-M:rounded-[16px] group-hover:scale-125 transition duration-300"
+                      loading="eager"
+                    />
                   </div>
-                  <div className="tgl text-primary pl-3 Mobile-L:text-[0.53rem] Mobile-M:text-[0.46rem] text-[0.55rem]">
-                    {dataEvent.tgl}
+                  <div className="desc flex justify-start items-start flex-col gap-2">
+                    <div className="head-card flex justify-start items-center text-xs">
+                      <div className="country flex justify-center items-center gap-2 pr-3 border-r border-[#DADADA] text-[#4D4D4D] text-[0.75rem] Mobile-M:text-[0.6rem]">
+                        <PiMapPin className="text-lg" />
+                        {dataEvent.city}
+                      </div>
+                      <div className="tgl text-primary pl-3 Mobile-L:text-[0.53rem] Mobile-M:text-[0.46rem] text-[0.55rem]">
+                        {dataEvent.tgl}
+                      </div>
+                    </div>
+                    <h1 className="font-bold text-sm">
+                      {dataEvent.titleEvent}
+                    </h1>
+                    <p className="text-[#A6A6A6] text-xs">
+                      {dataEvent.shortDesc}
+                    </p>
+                  </div>
+                  <h1 className="price font-normal self-start text-[0.65rem] Mobile-L:text-xs">
+                    <span className="text-primary font-bold text-xs Mobile-L:text-sm">
+                      {dataEvent.ticketPrice}
+                    </span>
+                    / 1 Person
+                  </h1>
+                  <div className="btn-card flex justify-center items-center py-2 px-3 w-full bg-[#EAF2E2] text-[#0B640D] rounded-[12px] cursor-pointer text-sm">
+                    Tersedia
                   </div>
                 </div>
-                <h1 className="font-bold text-sm">{dataEvent.titleEvent}</h1>
-                <p className="text-[#A6A6A6] text-xs">{dataEvent.shortDesc}</p>
-              </div>
-              <h1 className="price font-normal self-start text-[0.65rem] Mobile-L:text-xs">
-                <span className="text-primary font-bold text-xs Mobile-L:text-sm">
-                  {dataEvent.ticketPrice}
-                </span>
-                / 1 Person
-              </h1>
-              <div className="btn-card flex justify-center items-center py-2 px-3 w-full bg-[#EAF2E2] text-[#0B640D] rounded-[12px] cursor-pointer text-sm">
-                Tersedia
-              </div>
-            </div>
-          ))}
+              ))}
+            </>
+          )}
         </div>
       </div>
       <Footer />
