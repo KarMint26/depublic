@@ -52,7 +52,7 @@ const AllBlogs = () => {
             <input
               type="text"
               name="search field"
-              className="border px-10 Mobile-L:px-12 w-full h-[50px] bg-white/30 backdrop-blur-lg border-[#DADADA] rounded-[10px] text-sm placeholder:text-sm leading-[50px] placeholder:leading-[50px] text-[#868686]"
+              className="border px-11 Mobile-L:px-12 w-full h-[50px] bg-white/30 backdrop-blur-lg border-[#DADADA] rounded-[10px] text-sm placeholder:text-sm leading-[50px] placeholder:leading-[50px] text-[#868686]"
               placeholder="Search Blogs"
               value={query}
               onChange={({ target }) => setQuery(target.value)}
