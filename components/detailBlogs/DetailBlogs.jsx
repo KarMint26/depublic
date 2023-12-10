@@ -37,7 +37,7 @@ const DetailBlogs = ({ id }) => {
             Detail Blog
           </Link>
         </div>
-        <div className="w-full h-fit flex justify-center items-center mt-4">
+        <div className="w-full h-fit flex justify-center items-center mt-6 Mobile-M:mt-7">
           <Image
             src={blogDataById.imagePath}
             width={350}

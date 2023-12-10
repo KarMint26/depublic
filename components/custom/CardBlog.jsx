@@ -1,11 +1,17 @@
+"use client"
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const CardWidth = ({ dataBlog }) => {
+  const router = useRouter();
+
   return (
     <>
       <div
         key={dataBlog.id}
         className="card flex justify-center items-center flex-col gap-[1rem] bg-bg-primary p-3 rounded-[14px] Mobile-M:rounded-[16px] Mobile-L:rounded-[20px] w-[250px] h-fit cursor-pointer group" style={{ boxShadow: '0 0 12px rgba(0,0,0,0.1)' }}
+        onClick={() => router.push(`/all-blogs/detail/${dataBlog.id}`)}
       >
         <div className="img-container rounded-[14px] Mobile-M:rounded-[16px] w-fit h-fit overflow-hidden">
           <Image
