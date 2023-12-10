@@ -13,6 +13,7 @@ import CardMiniTicket from "@/components/custom/CardMiniTicket";
 import PromoVoucher from "../modals/PromoVoucher";
 import PricingDetails from "../modals/PricingDetails";
 import OrderSummary from "../modals/OrderSummary";
+import SelectPaymentMethod from "../modals/SelectPaymentMethod";
 
 const PaymentMethod = () => {
   const { activeLinkId } = TicketData();
@@ -28,6 +29,7 @@ const PaymentMethod = () => {
         {promo && <PromoVoucher setHandler={setPromo} />}
         {pricingDetails && <PricingDetails setHandler={setPricingDetails} />}
         {orderSummary && <OrderSummary setHandler={setOrderSummary} />}
+        {selPayMethod && <SelectPaymentMethod setHandler={setSelPayMenthod} />}
         <BreadCumbs idPembayaran={activeLinkId} whatLink="methodPay" />
         <TimeLeft />
         <div
@@ -37,7 +39,10 @@ const PaymentMethod = () => {
           <h1 className="text-sm Mobile-M:text-lg font-bold border-b border-[#DADADA] mb-6 pb-2 Mobile-M:pb-3 Mobile-M:mb-7">
             Payment Method
           </h1>
-          <div className="flex justify-between w-full cursor-pointer mb-5 Mobile-M:mb-6">
+          <div
+            className="flex justify-between w-full cursor-pointer mb-5 Mobile-M:mb-6"
+            onClick={() => setSelPayMenthod(true)}
+          >
             <p className="text-[#360146] font-semibold text-[0.65rem] Mobile-M:text-xs">
               Select Payment Method
             </p>
@@ -97,7 +102,10 @@ const PaymentMethod = () => {
                 className="w-3 h-3 border-[#A6A6A6]"
               />
             </div>
-            <div className="rounded-lg p-2 flex justify-between items-center cursor-pointer border border-[#DADADA]" onClick={() => setPricingDetails(true)}>
+            <div
+              className="rounded-lg p-2 flex justify-between items-center cursor-pointer border border-[#DADADA]"
+              onClick={() => setPricingDetails(true)}
+            >
               <label
                 htmlFor="promo"
                 className="flex items-center gap-3 text-[0.65rem] Mobile-M:text-xs"

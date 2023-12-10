@@ -27,7 +27,7 @@ export default function OrderSummary({ setHandler }) {
             onClick={() => setHandler(false)}
           />
         </div>
-        <div className="py-2 pt-4 Mobile-M:pt-4 flex flex-col gap-2 w-full">
+        <div className="py-2 pt-3 Mobile-M:pt-4 flex flex-col gap-2 w-full">
           <div className="w-full flex justify-center items-center">
             <div className="w-[170px] h-full pr-3 border-r border-[#DADADA]">
               <Image

@@ -29,7 +29,7 @@ export default function PricingDetails({ setHandler }) {
             onClick={() => setHandler(false)}
           />
         </div>
-        <div className="py-2 pt-4 Mobile-M:pt-4 flex flex-col gap-2 w-full">
+        <div className="py-2 pt-3 Mobile-M:pt-4 flex flex-col gap-2 w-full">
           <h1 className="font-bold text-[0.8rem] Mobile-M:text-[0.9rem] mb-3">
             {detailEvent?.titleEvent?.toUpperCase()}
           </h1>

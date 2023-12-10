@@ -17,7 +17,7 @@ export default function PromoVoucher({ setHandler }) {
             onClick={() => setHandler(false)}
           />
         </div>
-        <div className="py-2 pt-4 Mobile-M:pt-4 flex justify-between w-full">
+        <div className="py-2 pt-3 Mobile-M:pt-4 flex justify-between w-full">
           <input
             type="text"
             name="voucher"
