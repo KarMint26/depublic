@@ -61,11 +61,13 @@ export default function FootOrderDetail() {
             <CardMoreInfo key={info.id} moreInfo={info} type="orderDetail" />
           ))}
           <div
-            className={`more-info-box transition-all duration-300 flex overflow-hidden justify-center items-start h-fit flex-col text-xs w-full cursor-pointer bg-bg-primary Mobile-M:text-sm p-2 Mobile-M:p-3 border border-[#DADADA] rounded-[8px]`}
+            className={`more-info-box transition-all duration-300 flex overflow-hidden justify-center items-start h-fit flex-col text-xs w-full bg-bg-primary Mobile-M:text-sm p-2 Mobile-M:p-3 border border-[#DADADA] rounded-[8px]`}
             style={{ boxShadow: "0 4px 10px rgba(0,0,0,0.05)" }}
-            onClick={() => setSeeMoreInfo((prev) => !prev)}
           >
-            <div className="head-info-box flex justify-between items-center w-full">
+            <div
+              className="head-info-box flex justify-between items-center w-full cursor-pointer"
+              onClick={() => setSeeMoreInfo((prev) => !prev)}
+            >
               Ticket Description
               <IoIosArrowForward
                 className={`transition-all duration-300 ${
@@ -87,11 +89,13 @@ export default function FootOrderDetail() {
         </div>
 
         <div
-          className="w-full px-[0.6rem] pb-2 Mobile-M:px-3 Mobile-M:pb-3 bg-white rounded-[10px] cursor-pointer mt-7"
-          onClick={() => setSeeMoreHelp((prev) => !prev)}
+          className="w-full px-[0.6rem] pb-2 Mobile-M:px-3 Mobile-M:pb-3 bg-white rounded-[10px] mt-7"
           style={{ boxShadow: "0 6px 20px rgba(0,0,0,0.1)" }}
         >
-          <div className="w-full flex justify-between items-center py-3 pb-1 Mobile-M:pb-2 Mobile-M:py-4">
+          <div
+            className="w-full flex justify-between items-center py-3 pb-1 Mobile-M:pb-2 Mobile-M:py-4 cursor-pointer"
+            onClick={() => setSeeMoreHelp((prev) => !prev)}
+          >
             <div className="flex items-center gap-3">
               <PiChatsCircle className="text-lg" />
               <div className="font-bold text-sm">Need Help?</div>
