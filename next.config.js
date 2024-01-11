@@ -1,9 +1,11 @@
 /** @type {import('next').NextConfig} */
-const withPWA = require("next-pwa")({
-  dest: "public",
-});
-
-module.exports = withPWA({
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development',
+  // tambahkan opsi lainnya sesuai kebutuhan Anda
+ });
+ 
+ module.exports = withPWA({
   env: {
     API_URL: process.env.API_URL,
     API_KEY_FIREBASE: process.env.API_KEY_FIREBASE,
@@ -14,6 +16,8 @@ module.exports = withPWA({
     APP_ID: process.env.APP_ID,
   },
   images: {
-    domains: ["lh3.googleusercontent.com"],
+    domains: ['lh3.googleusercontent.com'],
   },
-});
+  // tambahkan opsi lainnya sesuai kebutuhan Anda
+ });
+ 
